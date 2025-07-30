@@ -24,8 +24,16 @@ import {
   GraduationCap,
   FileText,
   Play,
+  DollarSign,
+  BookOpen,
+  CreditCard,
+  HelpCircle,
+  LogOut,
+  User,
+  Settings,
 } from "lucide-react";
-// Header
+
+/* Header */
 
 // Marketing Header Navigation (Like Asana)
 export const navigationItems: NavigationItemProps[] = [
@@ -158,6 +166,16 @@ export const navigationItems: NavigationItemProps[] = [
   },
 ];
 
+// Mobile Navigation
+export const mobileNavigationItems = [
+  { name: "Product", href: "/product", icon: Zap },
+  { name: "Solutions", href: "/solutions", icon: Target },
+  { name: "Pricing", href: "/pricing", icon: DollarSign },
+  { name: "Resources", href: "/resources", icon: BookOpen },
+  { name: "Documentation", href: "/docs", icon: FileText },
+  { name: "Help Center", href: "/help", icon: HeadphonesIcon },
+];
+
 // Dashboard Navigation (When logged in)
 export const dashboardNavigationItems: NavigationItemProps[] = [
   { name: "Dashboard", href: "/dashboard", icon: Home, active: true },
@@ -169,12 +187,15 @@ export const dashboardNavigationItems: NavigationItemProps[] = [
 
 // User Dropdown
 export const dropdownItems: DropdownItemProps[] = [
-  { name: "My Profile", href: "/profile", icon: User2 },
+  { name: "Account", href: "/account", icon: User2 },
   { name: "Dashboard", href: "/dashboard", icon: Home },
   { name: "Team", href: "/team", icon: Users },
   { name: "My Tasks", href: "/tasks", icon: CheckSquare },
   { name: "Projects", href: "/projects", icon: FolderOpen },
   { name: "Analytics", href: "/analytics", icon: BarChart3 },
+  { name: "Billing", href: "/billing", icon: CreditCard },
+  { name: "Help & Support", href: "/support", icon: HelpCircle },
+  { name: "Sign Out", href: "/signout", icon: LogOut },
 ];
 
 // Notifications Dropdown
@@ -200,4 +221,12 @@ export const notifications: NotificationsProps[] = [
     time: "3 hours ago",
     unread: false,
   },
+];
+
+// Sidebar User Menu
+export const sidebarUserMenuItems: DropdownItemProps[] = [
+  { name: "Account", href: "/account", icon: User },
+  { name: "Settings", href: "/settings", icon: Settings },
+  { name: "Billing", href: "/billing", icon: CreditCard },
+  { name: "Help & Support", href: "/support", icon: HelpCircle },
 ];

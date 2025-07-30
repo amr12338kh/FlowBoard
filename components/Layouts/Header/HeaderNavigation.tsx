@@ -8,10 +8,10 @@ import {
 } from "@/components/ui/navigation-menu";
 import { navigationItems } from "@/data/data";
 import Link from "next/link";
-import { Badge } from "../ui/badge";
+import { Badge } from "../../ui/badge";
 import { LucideIcon } from "lucide-react";
 import React from "react";
-const HeaderNavigationMenu = () => {
+const HeaderNavigation = () => {
   return (
     <NavigationMenu>
       <NavigationMenuList>
@@ -85,4 +85,4 @@ const ListItem = ({
   );
 };
 
-export default HeaderNavigationMenu;
+export default HeaderNavigation;

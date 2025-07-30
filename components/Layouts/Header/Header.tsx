@@ -1,15 +1,16 @@
 "use client";
 
-import { Container } from "./Container";
-import { HeaderLogo } from "../Logo";
+import { Container } from "../Container";
+import { HeaderLogo } from "../../Logo";
 import { cn } from "@/lib/utils";
 import { HeaderProps } from "@/types/types";
 import Link from "next/link";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
 import { useState } from "react";
 import { ProfileDropdownMenu } from "./ProfileDropdownMenu";
 import Notifications from "./Notifications";
-import HeaderNavigationMenu from "./HeaderNavigationMenu";
+import HeaderNavigation from "./HeaderNavigation";
+import Sidebar from "../Sidebar/Sidebar";
 
 const Header = ({ className, notificationCount = 3 }: HeaderProps) => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -17,7 +18,7 @@ const Header = ({ className, notificationCount = 3 }: HeaderProps) => {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full shadow-accent-foreground bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60",
+        "sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60",
         className
       )}
     >
@@ -28,11 +29,11 @@ const Header = ({ className, notificationCount = 3 }: HeaderProps) => {
               <HeaderLogo />
             </Link>
             <div className="hidden md:block">
-              <HeaderNavigationMenu />
+              <HeaderNavigation />
             </div>
           </div>
 
-          <div>
+          <div className="flex items-center gap-5">
             {!isLoggedIn ? (
               <div className="space-x-4">
                 <Link href="/login">
@@ -50,6 +51,12 @@ const Header = ({ className, notificationCount = 3 }: HeaderProps) => {
                 <Notifications notificationCount={notificationCount} />
               </div>
             )}
+
+            <div className="md:hidden h-6 w-px bg-muted-foreground/40" />
+
+            <div className="md:hidden flex items-center">
+              <Sidebar />
+            </div>
           </div>
         </div>
       </Container>

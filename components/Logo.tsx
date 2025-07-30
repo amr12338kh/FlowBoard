@@ -1,8 +1,8 @@
 import { cn } from "@/lib/utils";
 
 interface LogoProps {
-  variant?: "primary" | "lightning" | "target" | "icon-only";
-  size?: "sm" | "md" | "lg" | "xl";
+  variant?: "primary" | "lightning" | "target" | "icon-only" | "secondary";
+  size?: "xs" | "sm" | "md" | "lg" | "xl";
   showText?: boolean;
   className?: string;
   iconClassName?: string;
@@ -20,9 +20,13 @@ const Logo: React.FC<LogoProps> = ({
   animated = true,
 }) => {
   const sizeClasses = {
-    sm: {
+    xs: {
       icon: "w-8 h-8 text-sm",
       text: "text-lg",
+    },
+    sm: {
+      icon: "w-9 h-9 text-base",
+      text: "text-2xl",
     },
     md: {
       icon: "w-12 h-12 text-xl",
@@ -99,7 +103,7 @@ const Logo: React.FC<LogoProps> = ({
 // Specialized Logo Components
 export const HeaderLogo: React.FC<Omit<LogoProps, "size" | "variant">> = (
   props
-) => <Logo variant="primary" size="sm" {...props} />;
+) => <Logo variant="primary" size="xs" {...props} />;
 
 export const SidebarLogo: React.FC<Omit<LogoProps, "size" | "variant">> = (
   props
@@ -108,7 +112,7 @@ export const SidebarLogo: React.FC<Omit<LogoProps, "size" | "variant">> = (
 export const FaviconLogo: React.FC<
   Omit<LogoProps, "size" | "variant" | "showText">
 > = (props) => (
-  <Logo variant="icon-only" size="sm" showText={false} {...props} />
+  <Logo variant="icon-only" size="xs" showText={false} {...props} />
 );
 
 export const HeroLogo: React.FC<Omit<LogoProps, "size" | "variant">> = (

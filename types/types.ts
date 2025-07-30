@@ -27,6 +27,16 @@ export interface NotificationsProps {
   unread: boolean;
 }
 
+export interface UserAvatarProps {
+  name: string;
+  email: string;
+  image?: string;
+  initials?: string;
+  className?: string;
+  avatarClassName?: string;
+  withText?: boolean;
+}
+
 export interface User {
   id: string;
   name: string;
