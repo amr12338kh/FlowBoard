@@ -9,6 +9,7 @@ import Notifications from "./Notifications";
 import HeaderNavigation from "./HeaderNavigation";
 import Sidebar from "../Sidebar/Sidebar";
 import { auth } from "@/auth";
+import { ModeToggle } from "@/components/Themes/ModeToggle";
 
 const Header = async ({ className, notificationCount = 3 }: HeaderProps) => {
   const session = await auth();
@@ -52,6 +53,10 @@ const Header = async ({ className, notificationCount = 3 }: HeaderProps) => {
             <div className="md:hidden flex items-center">
               <Sidebar session={session} />
             </div>
+
+            <div className="h-6 w-px bg-muted-foreground/40" />
+
+            <ModeToggle />
           </div>
         </div>
       </Container>

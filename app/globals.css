@@ -2,6 +2,8 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+@custom-variant teal (&:is(.teal *));
+@custom-variant teal (&:is(.sky *));
 
 @theme inline {
   --color-background: var(--background);
@@ -115,6 +117,59 @@ body {
   --priority-medium: #f59e0b;
   --priority-high: #ef4444;
   --priority-urgent: #dc2626;
+}
+
+/* Teal Theme */
+.teal {
+  --background: #fefffe;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+  --primary: #14b8a6; /* Teal-500 */
+  --primary-foreground: #ffffff;
+  --secondary: #f0fdfa; /* Teal-50 */
+  --secondary-foreground: #134e4a; /* Teal-900 */
+  --muted: #f0fdf4; /* Very light teal-green */
+  --muted-foreground: #6b7280;
+  --accent: #ccfbf1; /* Teal-100 */
+  --accent-foreground: #115e59; /* Teal-800 */
+  --destructive: #ef4444;
+  --border: #d1fae5; /* Light teal border */
+  --input: #f0fdfa;
+  --ring: #14b8a6;
+
+  /* Chart Colors - Teal Theme */
+  --chart-1: #14b8a6; /* Teal */
+  --chart-2: #10b981; /* Emerald */
+  --chart-3: #06b6d4; /* Cyan */
+  --chart-4: #3b82f6; /* Blue */
+  --chart-5: #8b5cf6; /* Purple */
+
+  /* Sidebar - Teal Theme */
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0f172a;
+  --sidebar-primary: #14b8a6;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f0fdfa;
+  --sidebar-accent-foreground: #134e4a;
+  --sidebar-border: #d1fae5;
+  --sidebar-ring: #14b8a6;
+
+  /* FlowBoard Custom Colors - Teal Theme */
+  --success: #10b981; /* Emerald */
+  --success-foreground: #ffffff;
+  --warning: #f59e0b;
+  --warning-foreground: #ffffff;
+  --info: #06b6d4; /* Cyan */
+  --info-foreground: #ffffff;
+
+  /* Priority Colors - Teal Theme */
+  --priority-low: #10b981; /* Emerald */
+  --priority-medium: #f59e0b;
+  --priority-high: #f97316; /* Orange */
+  --priority-urgent: #ef4444;
 }
 
 /* FlowBoard Dark Theme */
