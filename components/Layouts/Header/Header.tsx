@@ -1,19 +1,17 @@
-"use client";
-
 import { Container } from "../Container";
 import { HeaderLogo } from "../../Logo";
 import { cn } from "@/lib/utils";
 import { HeaderProps } from "@/types/types";
 import Link from "next/link";
 import { Button } from "../../ui/button";
-import { useState } from "react";
 import { ProfileDropdownMenu } from "./ProfileDropdownMenu";
 import Notifications from "./Notifications";
 import HeaderNavigation from "./HeaderNavigation";
 import Sidebar from "../Sidebar/Sidebar";
+import { auth } from "@/auth";
 
-const Header = ({ className, notificationCount = 3 }: HeaderProps) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+const Header = async ({ className, notificationCount = 3 }: HeaderProps) => {
+  const session = await auth();
 
   return (
     <header
@@ -34,28 +32,25 @@ const Header = ({ className, notificationCount = 3 }: HeaderProps) => {
           </div>
 
           <div className="flex items-center gap-5">
-            {!isLoggedIn ? (
-              <div className="space-x-4">
+            {!session?.user ? (
+              <div className="space-x-4 hidden sm:block">
                 <Link href="/login">
-                  <Button variant="secondary">Login</Button>
-                </Link>
-                <Link href="/register">
-                  <Button className="bg-black hover:bg-black/80">
+                  <Button className="gradient-primary hover:opacity-90">
                     Get Started
                   </Button>
                 </Link>
               </div>
             ) : (
               <div className="flex gap-5">
-                <ProfileDropdownMenu />
+                <ProfileDropdownMenu session={session} />
                 <Notifications notificationCount={notificationCount} />
               </div>
             )}
 
-            <div className="md:hidden h-6 w-px bg-muted-foreground/40" />
+            <div className="hidden sm:block md:hidden h-6 w-px bg-muted-foreground/40" />
 
             <div className="md:hidden flex items-center">
-              <Sidebar />
+              <Sidebar session={session} />
             </div>
           </div>
         </div>

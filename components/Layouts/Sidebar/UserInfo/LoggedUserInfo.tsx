@@ -3,14 +3,15 @@ import { Separator } from "@/components/ui/separator";
 import UserAvatar from "@/components/UserAvatar";
 import { sidebarUserMenuItems } from "@/data/data";
 import { LogOut } from "lucide-react";
+import { Session } from "next-auth";
 import Link from "next/link";
 import React from "react";
 
-const LoggedUserInfo = () => {
+const LoggedUserInfo = ({ session }: { session: Session }) => {
   return (
     <div className="space-y-4">
       {/* User Profile */}
-      <UserAvatar name="Amr Khaled" email="amrkhaled12338@gmail.com" />
+      <UserAvatar session={session} />
 
       {/* User Menu Items */}
       <div className="space-y-1">
@@ -31,7 +32,7 @@ const LoggedUserInfo = () => {
       <Separator />
 
       {/* Logout */}
-      <Link href="/signout">
+      <Link href="/logout">
         <Button
           variant="ghost"
           size="sm"

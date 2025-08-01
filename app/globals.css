@@ -82,7 +82,7 @@ body {
   --accent-foreground: #0284c7;
   --destructive: #ef4444;
   --border: #e2e8f0;
-  --input: #f8fafc;
+  --input: oklch(0.922 0 0);
   --ring: #0ea5e9;
 
   /* Chart Colors - Professional palette */
@@ -135,7 +135,7 @@ body {
   --accent-foreground: #0ea5e9;
   --destructive: #ef4444;
   --border: #334155;
-  --input: #1e293b;
+  --input: oklch(1 0 0 / 15%);
   --ring: #0ea5e9;
 
   /* Chart Colors - Dark theme optimized */
@@ -182,24 +182,19 @@ body {
 /* Custom Utility Classes */
 @layer utilities {
   .gradient-primary {
-    background: linear-gradient(135deg, #0ea5e9, #0284c7);
+    @apply bg-gradient-to-br from-primary to-accent-foreground;
   }
 
   .gradient-text-primary {
-    background: linear-gradient(135deg, #0ea5e9, #0284c7);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    @apply bg-gradient-to-br from-primary to-accent-foreground bg-clip-text text-transparent;
   }
 
   .shadow-glow {
-    box-shadow: 0 0 20px rgba(14, 165, 233, 0.15);
+    @apply shadow-[0_0_20px_rgba(20,184,166,0.15)];
   }
 
   .border-gradient {
-    border: 1px solid transparent;
-    background: linear-gradient(white, white) padding-box,
-      linear-gradient(135deg, #0ea5e9, #0284c7) border-box;
+    @apply relative border-transparent before:bg-gradient-to-br;
   }
 
   /* Priority Badges */

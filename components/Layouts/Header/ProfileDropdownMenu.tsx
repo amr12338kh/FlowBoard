@@ -14,8 +14,9 @@ import {
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import UserAvatar from "../../UserAvatar";
+import { Session } from "next-auth";
 
-export const ProfileDropdownMenu = () => {
+export const ProfileDropdownMenu = ({ session }: { session: Session }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -45,9 +46,9 @@ export const ProfileDropdownMenu = () => {
       >
         <div className="flex items-center gap-2">
           <UserAvatar
-            name="Amr Khaled"
-            email="amrkhaled12338@gmail.com"
+            session={session}
             withText={false}
+            avatarClassName="h-8! w-8!"
           />
           <ChevronDown
             size={16}
@@ -60,7 +61,7 @@ export const ProfileDropdownMenu = () => {
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuLabel>
-          <UserAvatar name="Amr Khaled" email="amrkhaled12338@gmail.com" />
+          <UserAvatar session={session} />
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         {dropdownItems.map((item, i) => (

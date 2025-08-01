@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Sheet,
   SheetContent,
@@ -15,9 +17,9 @@ import QuickActions from "./QuickActions";
 import Resources from "./Resources";
 import LoggedUserInfo from "./UserInfo/LoggedUserInfo";
 import GuestActions from "./UserInfo/GuestActions";
+import { Session } from "next-auth";
 
-const Sidebar = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+const Sidebar = ({ session }: { session: Session | null }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
@@ -43,7 +45,7 @@ const Sidebar = () => {
         <div className="flex flex-col h-full">
           <div className="flex-1 px-4 py-4 space-y-6">
             {/* Quick Actions (if logged in) */}
-            {isLoggedIn && <QuickActions />}
+            {session?.user && <QuickActions />}
 
             {/* Main Navigation */}
             <SidebarNavigation />
@@ -54,8 +56,8 @@ const Sidebar = () => {
 
           {/* Bottom Section */}
           <div className="border-t bg-muted/20 p-4">
-            {isLoggedIn ? (
-              <LoggedUserInfo />
+            {session?.user ? (
+              <LoggedUserInfo session={session} />
             ) : (
               /* Login/Signup Section */
               <GuestActions />

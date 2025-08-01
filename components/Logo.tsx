@@ -124,3 +124,5 @@ export const LoadingLogo: React.FC<Omit<LogoProps, "animated">> = (props) => (
     <Logo animated={false} {...props} />
   </div>
 );
+
+export default Logo;

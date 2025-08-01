@@ -1,6 +1,7 @@
 // Header
 
 import { LucideIcon } from "lucide-react";
+import { Session } from "next-auth";
 
 export interface NavigationItemProps {
   name: string;
@@ -28,10 +29,7 @@ export interface NotificationsProps {
 }
 
 export interface UserAvatarProps {
-  name: string;
-  email: string;
-  image?: string;
-  initials?: string;
+  session: Session | null;
   className?: string;
   avatarClassName?: string;
   withText?: boolean;
