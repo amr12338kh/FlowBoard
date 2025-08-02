@@ -1,13 +1,12 @@
 import { PageContainer } from "@/components/Layouts/Container";
-import { auth } from "@/auth";
-export default async function Home() {
-  const session = await auth();
-
-  console.log(session?.user);
-
+import Hero from "@/components/Hero";
+export default function Home() {
   return (
-    <PageContainer>
-      <h1>Home</h1>
-    </PageContainer>
+    <main className="min-h-[3000px]">
+      <Hero />
+
+      {/* <PageContainer>
+    </PageContainer> */}
+    </main>
   );
 }

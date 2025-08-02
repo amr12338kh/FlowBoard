@@ -17,11 +17,11 @@ const Header = async ({ className, notificationCount = 3 }: HeaderProps) => {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60",
+        "fixed top-0 z-50 w-full border-b bg-background/95 backdrop-blur",
         className
       )}
     >
-      <Container className="mx-auto">
+      <Container padding="sm" className="mx-auto">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-5 lg:gap-10">
             <Link href="/">

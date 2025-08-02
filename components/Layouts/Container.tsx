@@ -68,7 +68,7 @@ export const PageContainer = React.forwardRef<
   <Container
     ref={ref}
     size="2xl"
-    padding="lg"
+    padding="sm"
     centered
     className={cn("min-h-screen", className)}
     {...props}
