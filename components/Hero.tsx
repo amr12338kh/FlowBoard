@@ -52,7 +52,13 @@ const Hero = () => {
           ease: "power2.out",
         },
         "-=0.3"
-      );
+      )
+      .from(".hero-image", {
+        opacity: 0,
+        y: 20,
+        duration: 0.8,
+        ease: "power2.out",
+      });
   }, []);
 
   return (
@@ -105,13 +111,13 @@ const Hero = () => {
           <img
             src="/woman-working.jpg"
             alt="Woman Working Image"
-            className="w-1/2 object-cover rounded-md sm:rounded-2xl"
+            className="w-1/2 object-cover rounded-md sm:rounded-2xl hero-image"
             loading="lazy"
           />
           <img
             src="/man-working.jpg"
             alt="Man Working Image"
-            className="w-1/2 object-cover rounded-md sm:rounded-2xl"
+            className="w-1/2 object-cover rounded-md sm:rounded-2xl hero-image"
             loading="lazy"
           />
         </div>
