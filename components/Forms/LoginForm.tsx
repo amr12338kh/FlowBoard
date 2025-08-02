@@ -29,14 +29,26 @@ export const LoginForm = () => {
   };
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-3">
+      <div className="space-y-2 pb-6 ">
+        <h1 className="text-5xl lg:text-4xl xl:text-5xl font-black tracking-tight">
+          <span className="block">Welcome</span>
+          <span className="block text-foreground">
+            To <span className="gradient-text-primary">FlowBoard</span>
+          </span>
+        </h1>
+
+        <p className="text-muted-foreground text-sm">
+          To get started, please sign in
+        </p>
+      </div>
       <Button
         size="lg"
         type="button"
         disabled={isPending}
         variant="outline"
         onClick={() => run(() => login("google"), "google")}
-        className="w-full"
+        className="w-full p-5 hover:bg-muted-foreground/5 text-lg p-5"
       >
         {isPending && provider === "google" && (
           <Loader2 className="animate-spin" />
@@ -54,7 +66,7 @@ export const LoginForm = () => {
         disabled={isPending}
         variant="outline"
         onClick={() => run(() => login("github"), "github")}
-        className="w-full"
+        className="w-full p-5 hover:bg-muted-foreground/5 text-lg"
       >
         {isPending && provider === "github" && (
           <Loader2 className="animate-spin" />
@@ -72,7 +84,7 @@ export const LoginForm = () => {
         disabled={isPending}
         variant="outline"
         onClick={() => run(() => login("twitter"), "twitter")}
-        className="w-full"
+        className="w-full p-5 hover:bg-muted-foreground/5 text-lg"
       >
         {isPending && provider === "twitter" && (
           <Loader2 className="animate-spin" />
@@ -91,7 +103,7 @@ export const LoginForm = () => {
         disabled={isPending}
         variant="outline"
         onClick={() => run(() => login("facebook"), "facebook")}
-        className="w-full"
+        className="w-full p-5 hover:bg-muted-foreground/5 text-lg"
       >
         {isPending && provider === "facebook" && (
           <Loader2 className="animate-spin" />

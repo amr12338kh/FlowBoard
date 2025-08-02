@@ -35,7 +35,7 @@ export const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
     const paddingClasses = {
       none: "",
       sm: "px-4 py-2",
-      md: "px-6 py-4",
+      md: "px-5 py-4",
       lg: "px-8 py-6",
       xl: "px-12 py-8",
     };
@@ -68,7 +68,7 @@ export const PageContainer = React.forwardRef<
   <Container
     ref={ref}
     size="2xl"
-    padding="sm"
+    padding="md"
     centered
     className={cn("min-h-screen", className)}
     {...props}

@@ -83,9 +83,9 @@ body {
   --accent: #e0f2fe;
   --accent-foreground: #0284c7;
   --destructive: #ef4444;
-  --border: #e2e8f0;
+  --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
-  --ring: #0ea5e9;
+  --ring: oklch(0.708 0 0);
 
   /* Chart Colors - Professional palette */
   --chart-1: #0ea5e9;
@@ -136,9 +136,9 @@ body {
   --accent: #ccfbf1; /* Teal-100 */
   --accent-foreground: #115e59; /* Teal-800 */
   --destructive: #ef4444;
-  --border: #d1fae5; /* Light teal border */
+  --border: oklch(0.922 0 0);
   --input: #f0fdfa;
-  --ring: #14b8a6;
+  --ring: oklch(0.708 0 0);
 
   /* Chart Colors - Teal Theme */
   --chart-1: #14b8a6; /* Teal */
