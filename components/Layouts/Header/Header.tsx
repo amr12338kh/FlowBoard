@@ -36,9 +36,7 @@ const Header = async ({ className, notificationCount = 3 }: HeaderProps) => {
             {!session?.user ? (
               <div className="space-x-4 hidden sm:block">
                 <Link href="/login">
-                  <Button className="gradient-primary hover:opacity-90">
-                    Get Started
-                  </Button>
+                  <Button>Get Started</Button>
                 </Link>
               </div>
             ) : (

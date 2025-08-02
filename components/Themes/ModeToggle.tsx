@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Moon, Sun, Waves } from "lucide-react";
+import { Cloud, Moon, Sun, Waves } from "lucide-react";
 import { useTheme } from "next-themes";
 
 import { Button } from "@/components/ui/button";
@@ -19,7 +19,7 @@ export function ModeToggle() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="icon">
-          <Sun
+          <Cloud
             className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all data-[theme=teal]:scale-0 data-[theme=teal]:-rotate-90 data-[theme=system]:scale-0 data-[theme=system]:-rotate-90"
             data-theme={theme}
           />
@@ -32,7 +32,7 @@ export function ModeToggle() {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuItem onClick={() => setTheme("sky")}>
-          <Sun className="h-[1.2rem] w-[1.2rem]" /> Sky
+          <Cloud className="h-[1.2rem] w-[1.2rem]" /> Sky
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("teal")}>
           <Waves className="h-[1.2rem] w-[1.2rem]" />

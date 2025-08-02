@@ -14,7 +14,7 @@ import React from "react";
 const HeaderNavigation = () => {
   return (
     <NavigationMenu>
-      <NavigationMenuList>
+      <NavigationMenuList className="gap-0">
         {navigationItems.map((nav, i) => (
           <NavigationMenuItem key={i}>
             {nav.hasDropdown ? (

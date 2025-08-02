@@ -22,7 +22,7 @@ const Logo: React.FC<LogoProps> = ({
   const sizeClasses = {
     xs: {
       icon: "w-8 h-8 text-sm",
-      text: "text-lg",
+      text: "text-2xl",
     },
     sm: {
       icon: "w-9 h-9 text-base",
