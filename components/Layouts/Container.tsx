@@ -70,7 +70,7 @@ export const PageContainer = React.forwardRef<
     size="2xl"
     padding="md"
     centered
-    className={cn("min-h-screen", className)}
+    className={cn("", className)}
     {...props}
   >
     {children}

@@ -230,3 +230,28 @@ export const sidebarUserMenuItems: DropdownItemProps[] = [
   { name: "Billing", href: "/billing", icon: CreditCard },
   { name: "Help & Support", href: "/support", icon: HelpCircle },
 ];
+
+// Companies
+
+export const companiesData = [
+  {
+    name: "Amazon",
+    image: "/amazon-logo.png",
+  },
+  {
+    name: "Spotify",
+    image: "/spotify-logo.png",
+  },
+  {
+    name: "Netflix",
+    image: "/netflix-logo.png",
+  },
+  {
+    name: "Vercel",
+    image: "/vercel-logo.png",
+  },
+  {
+    name: "Adobe",
+    image: "/Adobe-logo.png",
+  },
+];
