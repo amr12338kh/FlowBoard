@@ -1,7 +1,7 @@
 "use client";
 
 /* eslint-disable @next/next/no-img-element */
-import { PageContainer } from "./Layouts/Container";
+import { Container } from "./Layouts/Container";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import SectionBackgroundWrapper from "./Layouts/SectionBackgroundWrapper";
@@ -87,7 +87,7 @@ const Hero = () => {
 
   return (
     <SectionBackgroundWrapper id="home">
-      <PageContainer className="pt-28 pb-10 sm:py-32 space-y-14 min-h-fit hero-container opacity-0">
+      <Container className="pt-28 pb-10 sm:py-32 space-y-14 min-h-fit hero-container opacity-0">
         <div
           className="text-center space-y-6 sm:space-y-10 max-w-4xl mx-auto"
           ref={contentRef}
@@ -143,7 +143,7 @@ const Hero = () => {
             loading="lazy"
           />
         </div>
-      </PageContainer>
+      </Container>
     </SectionBackgroundWrapper>
   );
 };

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { HeaderLogo } from "@/components/Logo";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
-import { PageContainer } from "@/components/Layouts/Container";
+import { Container } from "@/components/Layouts/Container";
 
 const page = async () => {
   const session = await auth();
@@ -12,7 +12,7 @@ const page = async () => {
 
   return (
     <div className="grid min-h-svh lg:grid-cols-3">
-      <PageContainer className="flex flex-col gap-4">
+      <Container className="flex flex-col gap-4">
         <Link href="/" className="flex justify-start">
           <HeaderLogo />
         </Link>
@@ -21,7 +21,7 @@ const page = async () => {
             <LoginForm />
           </div>
         </div>
-      </PageContainer>
+      </Container>
       <div className="bg-muted relative hidden lg:block col-span-2">
         <img
           src="/teamwork-image.jpg"

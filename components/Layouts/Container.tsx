@@ -60,25 +60,6 @@ export const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
 
 Container.displayName = "Container";
 
-// Specialized Container variants
-export const PageContainer = React.forwardRef<
-  HTMLDivElement,
-  Omit<ContainerProps, "size" | "padding">
->(({ children, className, ...props }, ref) => (
-  <Container
-    ref={ref}
-    size="2xl"
-    padding="md"
-    centered
-    className={cn("", className)}
-    {...props}
-  >
-    {children}
-  </Container>
-));
-
-PageContainer.displayName = "PageContainer";
-
 export const ContentContainer = React.forwardRef<
   HTMLDivElement,
   Omit<ContainerProps, "size">
