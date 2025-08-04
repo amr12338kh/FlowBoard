@@ -9,7 +9,7 @@ const Section = ({
   className?: string;
 }) => {
   return (
-    <section className={cn("py-8 sm:py-16", className)}>{children}</section>
+    <section className={cn("py-6 sm:py-16", className)}>{children}</section>
   );
 };
 

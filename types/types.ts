@@ -107,3 +107,10 @@ export interface UseCasesProps {
   cta: string;
   href: string;
 }
+
+export interface FeatureProps {
+  id: number;
+  title: string;
+  description: string;
+  icon: LucideIcon;
+}

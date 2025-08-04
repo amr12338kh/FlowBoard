@@ -1,5 +1,6 @@
 import {
   DropdownItemProps,
+  FeatureProps,
   NavigationItemProps,
   NotificationsProps,
   UseCasesProps,
@@ -36,6 +37,11 @@ import {
   Code,
   Palette,
   Rocket,
+  Bot,
+  CalendarCheck,
+  LayoutDashboard,
+  Type,
+  BellRing,
 } from "lucide-react";
 
 /* Header */
@@ -352,5 +358,58 @@ export const useCases: UseCasesProps[] = [
     stats: "Free for qualifying organizations",
     cta: "Create impact",
     href: "/",
+  },
+];
+
+// Features
+
+export const features: FeatureProps[] = [
+  {
+    id: 1,
+    title: "Automation",
+    description: "AI handles repetitive tasks so you can focus on real work.",
+    icon: Bot,
+  },
+  {
+    id: 2,
+    title: "Prioritization",
+    description: "Smartly ranks tasks by urgency and impact.",
+    icon: Target,
+  },
+  {
+    id: 3,
+    title: "Deadlines",
+    description: "Predicts realistic deadlines based on team pace.",
+    icon: CalendarCheck,
+  },
+  {
+    id: 4,
+    title: "Summaries",
+    description: "Auto-generates meeting notes and action items.",
+    icon: FileText,
+  },
+  {
+    id: 5,
+    title: "Insights",
+    description: "Highlights blockers and suggests task owners.",
+    icon: LayoutDashboard,
+  },
+  {
+    id: 6,
+    title: "Quick Add",
+    description: "Create tasks in plain language. AI does the rest.",
+    icon: Type,
+  },
+  {
+    id: 7,
+    title: "Smart Alerts",
+    description: "Get only the notifications that really matter.",
+    icon: BellRing,
+  },
+  {
+    id: 8,
+    title: "Collaboration",
+    description: "Work together in real-time with AI-powered suggestions.",
+    icon: Users,
   },
 ];
