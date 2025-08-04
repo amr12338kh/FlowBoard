@@ -8,27 +8,23 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 import Carousel from "./ui/carousel";
 import { UseCasesProps } from "@/types/types";
+import { SectionTitle, TitleGradient } from "./Layouts/Heading";
 
 const UseCases = () => {
   return (
     <Section>
       <Container>
-        <div className="max-w-3xl">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-[600] tracking-tight">
-            See how{" "}
-            <span className="gradient-text-primary font-black">FlowBoard</span>{" "}
-            keeps work moving across use cases
-          </h1>
-        </div>
+        <SectionTitle>
+          See how <TitleGradient>FlowBoard</TitleGradient> keeps work moving
+          across use cases
+        </SectionTitle>
       </Container>
 
-      <div className="py-8 sm:py-4">
-        <Carousel gap={30}>
-          {useCases.map((useCase, i) => (
-            <UseCaseCard key={i} useCase={useCase} />
-          ))}
-        </Carousel>
-      </div>
+      <Carousel gap={30}>
+        {useCases.map((useCase, i) => (
+          <UseCaseCard key={i} useCase={useCase} />
+        ))}
+      </Carousel>
     </Section>
   );
 };
