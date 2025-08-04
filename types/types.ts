@@ -1,7 +1,8 @@
 // Header
 
-import { LucideIcon } from "lucide-react";
+import { icons, LucideIcon } from "lucide-react";
 import { Session } from "next-auth";
+import { ReactNode } from "react";
 
 export interface NavigationItemProps {
   name: string;
@@ -74,4 +75,35 @@ export interface HeaderProps {
   onThemeToggle?: () => void;
   isDark?: boolean;
   notificationCount?: number;
+}
+
+export interface CarouselProps {
+  children: ReactNode;
+  itemWidth?: number;
+  gap?: number;
+  showNavigation?: boolean;
+  containerPadding?: string;
+  containerClassName?: string;
+  carouselClassName?: string;
+  buttonsContainerClassName?: string;
+  buttonVariant?:
+    | "primary"
+    | "secondary"
+    | "basic"
+    | "destructive"
+    | "outline"
+    | "ghost"
+    | "link";
+  autoPlay?: boolean;
+  autoPlayInterval?: number;
+}
+
+export interface UseCasesProps {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  features: string[];
+  stats: string;
+  cta: string;
+  href: string;
 }

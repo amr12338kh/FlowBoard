@@ -18,7 +18,7 @@ export const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
       size = "2xl",
       padding = "md",
       as: Component = "div" as React.ElementType,
-      centered = false,
+      centered = true,
       ...props
     },
     ref
@@ -28,7 +28,7 @@ export const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
       md: "max-w-4xl", // 896px
       lg: "max-w-6xl", // 1152px
       xl: "max-w-7xl", // 1280px
-      "2xl": "max-w-[1536px]", // 1536px
+      "2xl": "max-w-[1450px]",
       full: "max-w-none", // No max width
     };
 

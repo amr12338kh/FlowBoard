@@ -2,6 +2,7 @@ import {
   DropdownItemProps,
   NavigationItemProps,
   NotificationsProps,
+  UseCasesProps,
 } from "@/types/types";
 import {
   BarChart3,
@@ -31,6 +32,10 @@ import {
   LogOut,
   User,
   Settings,
+  Heart,
+  Code,
+  Palette,
+  Rocket,
 } from "lucide-react";
 
 /* Header */
@@ -253,5 +258,99 @@ export const companiesData = [
   {
     name: "Adobe",
     image: "/Adobe-logo.png",
+  },
+];
+
+// Use Cases
+export const useCases: UseCasesProps[] = [
+  {
+    icon: Users,
+    title: "Small Teams",
+    description:
+      "Streamline communication, assign tasks, and track progress as your team scales from 5 to 50 members.",
+    features: [
+      "Real-time collaboration",
+      "Task assignments",
+      "Progress tracking",
+      "Team chat integration",
+    ],
+    stats: "95% faster project completion",
+    cta: "Start with teams",
+    href: "/",
+  },
+  {
+    icon: Building2,
+    title: "Enterprise",
+    description:
+      "Manage complex projects across departments with advanced permissions, reporting, and enterprise-grade security.",
+    features: [
+      "Advanced permissions",
+      "Custom workflows",
+      "Enterprise SSO",
+      "Advanced analytics",
+    ],
+    stats: "500+ enterprise customers",
+    cta: "Enterprise solutions",
+    href: "/",
+  },
+  {
+    icon: Rocket,
+    title: "Startups",
+    description:
+      "Launch products faster with AI-powered project templates, sprint planning, and investor reporting tools.",
+    features: [
+      "AI project templates",
+      "Sprint planning",
+      "Investor dashboards",
+      "Growth tracking",
+    ],
+    stats: "3x faster time to market",
+    cta: "Scale your startup",
+    href: "/",
+  },
+  {
+    icon: Palette,
+    title: "Creative Agencies",
+    description:
+      "Handle multiple client projects with custom branding, time tracking, and client collaboration portals.",
+    features: [
+      "Client portals",
+      "Time tracking",
+      "Custom branding",
+      "Asset management",
+    ],
+    stats: "40% better client satisfaction",
+    cta: "Grow your agency",
+    href: "/",
+  },
+  {
+    icon: Code,
+    title: "Development Teams",
+    description:
+      "Integrate with GitHub, track sprints, manage releases, and coordinate between dev, design, and product teams.",
+    features: [
+      "GitHub integration",
+      "Sprint tracking",
+      "Release management",
+      "Bug tracking",
+    ],
+    stats: "50% fewer bugs in production",
+    cta: "Build better software",
+    href: "/",
+  },
+  {
+    icon: Heart,
+    title: "Non-profits",
+    description:
+      "Coordinate volunteers, track donations, manage events, and report impact with purpose-built tools.",
+    features: [
+      "Volunteer management",
+      "Donation tracking",
+      "Event planning",
+      "Impact reporting",
+    ],
+    stats: "Free for qualifying organizations",
+    cta: "Create impact",
+    href: "/",
   },
 ];
