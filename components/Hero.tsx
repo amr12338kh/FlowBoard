@@ -17,22 +17,33 @@ const Hero = () => {
   useGSAP(() => {
     const tl = gsap.timeline();
 
+    // Set initial states
+    tl.set(".hero-container", { opacity: 1 }).set(".hero-image", {
+      y: 50,
+      skewY: 5,
+      filter: "blur(10px)",
+      opacity: 0,
+    });
+
     tl.from(".hero-badge", {
       opacity: 0,
-      y: 20,
-      duration: 0.8,
-      ease: "power2.out",
+      scale: 0.8,
+      duration: 0.5,
+      ease: "back.out(1.7)",
     })
+
       .from(
         ".hero-title",
         {
           opacity: 0,
           y: 30,
+          scale: 0.95,
           duration: 1,
-          ease: "power2.out",
+          ease: "power4.out",
         },
-        "-=0.5"
+        "-=0.3"
       )
+
       .from(
         ".hero-description",
         {
@@ -41,29 +52,42 @@ const Hero = () => {
           duration: 0.8,
           ease: "power2.out",
         },
-        "-=0.3"
+        "-=0.6"
       )
+
       .from(
-        ".hero-buttons",
+        ".hero-buttons > *",
         {
           opacity: 0,
           y: 20,
-          duration: 0.8,
+          scale: 0.95,
+          duration: 0.6,
           ease: "power2.out",
+          stagger: 0.15,
         },
-        "-=0.3"
+        "-=0.5"
       )
-      .from(".hero-image", {
-        opacity: 0,
-        y: 20,
-        duration: 0.8,
-        ease: "power2.out",
-      });
+
+      .to(
+        ".hero-image",
+        {
+          y: 0,
+          skewY: 0,
+          filter: "blur(0px)",
+          opacity: 1,
+          duration: 1,
+          ease: "power3.out",
+          stagger: 0.2,
+        },
+        "-=0.7"
+      );
+
+    return () => tl.kill();
   }, []);
 
   return (
     <SectionBackgroundWrapper id="home">
-      <PageContainer className="pt-28 pb-10 sm:py-32 space-y-14 min-h-fit">
+      <PageContainer className="pt-28 pb-10 sm:py-32 space-y-14 min-h-fit hero-container opacity-0">
         <div
           className="text-center space-y-6 sm:space-y-10 max-w-4xl mx-auto"
           ref={contentRef}
@@ -78,13 +102,11 @@ const Hero = () => {
             </Badge>
           </div>
 
-          <div className="hero-title">
-            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-[1.1]">
-              Where your teams and{" "}
-              <span className="gradient-text-primary">AI coordinate</span> work
-              together
-            </h1>
-          </div>
+          <h1 className="hero-title text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-[1.1]">
+            Where your teams and{""}
+            <span className="gradient-text-primary">AI coordinate</span> work
+            together
+          </h1>
 
           <div className="hero-description">
             <p className="max-w-3xl text-sm sm:text-lg text-muted-foreground mx-auto font-medium leading-relaxed">
