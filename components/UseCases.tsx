@@ -23,12 +23,7 @@ const UseCases = () => {
       </Container>
 
       <div className="py-8 sm:py-4">
-        <Carousel
-          itemWidth={320}
-          gap={30}
-          showNavigation={true}
-          containerPadding="max(1.25rem, calc((100vw - 1450px) / 2))"
-        >
+        <Carousel gap={30}>
           {useCases.map((useCase, i) => (
             <UseCaseCard key={i} useCase={useCase} />
           ))}
