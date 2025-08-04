@@ -238,7 +238,7 @@ const Carousel = ({
 
   return (
     <div
-      className={cn("w-full relative", containerClassName)}
+      className={cn("w-full relative py-4", containerClassName)}
       role="region"
       aria-label="carousel"
       onKeyDown={handleKeyDown}
