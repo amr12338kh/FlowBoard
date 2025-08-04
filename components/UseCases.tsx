@@ -25,7 +25,7 @@ const UseCases = () => {
       <div className="py-8 sm:py-4">
         <Carousel
           itemWidth={320}
-          gap={16}
+          gap={30}
           showNavigation={true}
           containerPadding="max(1.25rem, calc((100vw - 1450px) / 2))"
         >

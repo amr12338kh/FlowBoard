@@ -5,8 +5,8 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "./button";
 import { useRef, useState, useEffect, useMemo, useCallback } from "react";
 import { CarouselProps } from "@/types/types";
-import { useDebounce } from "@/hooks/use-debounce";
 import { useSwipeGesture } from "@/hooks/use-swipe-gesture";
+import { useDebouncedCallback } from "use-debounce";
 
 const Carousel = ({
   children,
@@ -57,7 +57,7 @@ const Carousel = ({
   }, []);
 
   // Debounced scroll check for better performance
-  const debouncedScrollCheck = useDebounce(checkScrollability, 16);
+  const debouncedScrollCheck = useDebouncedCallback(checkScrollability, 16);
 
   const containerPaddingValue = useMemo(() => {
     if (typeof window === "undefined") return 20;
