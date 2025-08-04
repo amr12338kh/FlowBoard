@@ -12,10 +12,12 @@ const SectionBackgroundWrapper = ({
   children,
   className,
   id,
+  isTop,
 }: {
   children: React.ReactNode;
   className?: string;
   id?: string;
+  isTop?: boolean;
 }) => {
   const bgRef = useRef<HTMLElement>(null);
 
@@ -24,19 +26,19 @@ const SectionBackgroundWrapper = ({
 
     // Initial state
     gsap.set(bgRef.current, {
-      width: "100%",
-      borderRadius: "0px",
+      width: isTop ? "95%" : "100%",
+      borderRadius: isTop ? "25px" : "0px",
     });
 
     // Scroll animation
     gsap.to(bgRef.current, {
-      width: "95%",
-      borderRadius: "25px",
+      width: isTop ? "100%" : "95%",
+      borderRadius: isTop ? "0px" : "25px",
       ease: "none",
       scrollTrigger: {
         trigger: bgRef.current,
-        start: "top top",
-        end: "bottom center",
+        start: isTop ? "center bottom" : "top top",
+        end: isTop ? "center center" : "bottom center",
         scrub: 1,
         invalidateOnRefresh: true,
       },
