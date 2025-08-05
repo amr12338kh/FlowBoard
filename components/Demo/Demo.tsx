@@ -1,0 +1,32 @@
+import { Button } from "@/components/ui/button";
+import { SectionTitle, TitleGradient } from "@/components/Layouts/Heading";
+import Section from "../Layouts/Section";
+import { Container } from "../Layouts/Container";
+import Link from "next/link";
+import DemoAnimation from "./DemoAnimation";
+
+const Demo = () => {
+  return (
+    <Section>
+      <Container className="flex flex-col items-center text-center">
+        <SectionTitle containerClassName="sm:mb-0 mb-0">
+          See <TitleGradient>FlowBoard AI</TitleGradient> in action
+        </SectionTitle>
+        <p className="max-w-xl mt-4 text-muted-foreground">
+          Watch how FlowBoard automates workflows, prioritizes tasks, and keeps
+          your team aligned — effortlessly.
+        </p>
+
+        <DemoAnimation />
+
+        <Link href="/login" className="mt-10">
+          <Button className="p-6 sm:p-8 sm:text-lg rounded-full bg-transparent border border-primary text-primary hover:bg-primary/10 font-medium w-full">
+            Get Started For Free
+          </Button>
+        </Link>
+      </Container>
+    </Section>
+  );
+};
+
+export default Demo;
