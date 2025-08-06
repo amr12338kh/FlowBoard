@@ -3,6 +3,7 @@ import {
   FeatureProps,
   NavigationItemProps,
   NotificationsProps,
+  TestimonialsProps,
   UseCasesProps,
 } from "@/types/types";
 import {
@@ -243,27 +244,26 @@ export const sidebarUserMenuItems: DropdownItemProps[] = [
 ];
 
 // Companies
-
 export const companiesData = [
   {
     name: "Amazon",
-    image: "/amazon-logo.png",
+    image: "/amazon-logo-black.png",
   },
   {
     name: "Spotify",
-    image: "/spotify-logo.png",
+    image: "/spotify-logo-black.png",
   },
   {
     name: "Netflix",
-    image: "/netflix-logo.png",
+    image: "/netflix-logo-black.png",
   },
   {
     name: "Vercel",
-    image: "/vercel-logo.png",
+    image: "/vercel-logo-black.png",
   },
   {
     name: "Adobe",
-    image: "/Adobe-logo.png",
+    image: "/Adobe-logo-black.png",
   },
 ];
 
@@ -362,7 +362,6 @@ export const useCases: UseCasesProps[] = [
 ];
 
 // Features
-
 export const features: FeatureProps[] = [
   {
     id: 1,
@@ -411,5 +410,64 @@ export const features: FeatureProps[] = [
     title: "Collaboration",
     description: "Work together in real-time with AI-powered suggestions.",
     icon: Users,
+  },
+];
+
+// Testimonials
+export const testimonials: TestimonialsProps[] = [
+  {
+    logo: "/spotify-logo.png",
+    companySize: "Enterprise",
+    industry: "Technology",
+    testimonial:
+      "FlowBoard is our air traffic control. We have the visibility to scale production and support a higher number of ad campaigns to support our revenue goals.",
+    name: "Eugenia Contreras",
+    role: "Associate Manager",
+    company: "Spotify",
+    companyColor: "#1DB954",
+  },
+  {
+    logo: "/netflix-logo.png",
+    companySize: "Enterprise",
+    industry: "Entertainment",
+    testimonial:
+      "FlowBoard transforms how our teams collaborate on campaigns. It reduces friction and ensures everyone is aligned from day one.",
+    name: "Alex Kim",
+    role: "Global Marketing Coordinator",
+    company: "Netflix",
+    companyColor: "#E50914",
+  },
+  {
+    logo: "/amazon-logo.png",
+    companySize: "Enterprise",
+    industry: "E-commerce",
+    testimonial:
+      "FlowBoard helps our marketing operations stay agile. We can rapidly draft, review, and launch campaigns at scale.",
+    name: "Daniel Carter",
+    role: "Senior Campaign Manager",
+    company: "Amazon",
+    companyColor: "#FF9900",
+  },
+  {
+    logo: "/adobe-logo.png",
+    companySize: "Enterprise",
+    industry: "Creative Software",
+    testimonial:
+      "With FlowBoard, our content teams streamline their workflows. Brief creation is faster, clearer, and always aligned with our brand.",
+    name: "Maya Singh",
+    role: "Content Operations Manager",
+    company: "Adobe",
+    companyColor: "#FF0000",
+  },
+  {
+    logo: "/vercel-logo-black.png",
+    companySize: "Mid-Market",
+    industry: "Developer Tools",
+    testimonial:
+      "FlowBoard AI aligns our product and marketing teams effortlessly. It reduces back-and-forth and lets us focus on shipping faster.",
+    name: "Sophia Lopez",
+    role: "Product Marketing Lead",
+    company: "Vercel",
+    companyColor: "#000000",
   },
 ];

@@ -96,6 +96,11 @@ export interface CarouselProps {
     | "link";
   autoPlay?: boolean;
   autoPlayInterval?: number;
+  fullWidthPerItem?: boolean;
+  instantSnap?: boolean;
+  onNext?: () => void;
+  onPrev?: () => void;
+  activeIndex?: number;
 }
 
 export interface UseCasesProps {
@@ -113,4 +118,16 @@ export interface FeatureProps {
   title: string;
   description: string;
   icon: LucideIcon;
+}
+
+// Testimonials
+export interface TestimonialsProps {
+  logo: string;
+  companySize: "Startup" | "SMB" | "Enterprise" | "Mid-Market";
+  industry: string;
+  testimonial: string;
+  name: string;
+  role: string;
+  company: string;
+  companyColor: string;
 }

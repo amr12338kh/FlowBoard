@@ -4,7 +4,7 @@
 
 @custom-variant dark (&:is(.dark *));
 @custom-variant teal (&:is(.teal *));
-@custom-variant teal (&:is(.sky *));
+@custom-variant sky (&:is(.sky *));
 
 @theme inline {
   --color-background: var(--background);
@@ -67,17 +67,12 @@ body {
   font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-/* FlowBoard sky Theme & basic colors */
 :root {
   --radius: 0.75rem;
 
-  /* Basic Colors */
+  /* BASIC CONSTANT COLORS */
   --background-basic: oklch(1 0 0);
   --foreground-basic: oklch(0.145 0 0);
-  --card-basic: oklch(1 0 0);
-  --card-foreground-basic: oklch(0.145 0 0);
-  --popover-basic: oklch(1 0 0);
-  --popover-foreground-basic: oklch(0.145 0 0);
   --primary-basic: oklch(0.205 0 0);
   --primary-foreground-basic: oklch(0.985 0 0);
   --secondary-basic: oklch(0.97 0 0);
@@ -90,12 +85,18 @@ body {
   --border-basic: oklch(0.922 0 0);
   --input-basic: oklch(0.922 0 0);
   --ring-basic: oklch(0.708 0 0);
+
+  --card-basic: var(--background-basic);
+  --card-foreground-basic: var(--foreground-basic);
+  --popover-basic: var(--background-basic);
+  --popover-foreground-basic: var(--foreground-basic);
+
   --chart-1-basic: oklch(0.646 0.222 41.116);
   --chart-2-basic: oklch(0.6 0.118 184.704);
   --chart-3-basic: oklch(0.398 0.07 227.392);
   --chart-4-basic: oklch(0.828 0.189 84.429);
   --chart-5-basic: oklch(0.769 0.188 70.08);
-  --radius-basic: 0.625rem;
+
   --sidebar-basic: oklch(0.985 0 0);
   --sidebar-foreground-basic: oklch(0.145 0 0);
   --sidebar-primary-basic: oklch(0.205 0 0);
@@ -104,8 +105,10 @@ body {
   --sidebar-accent-foreground-basic: oklch(0.205 0 0);
   --sidebar-border-basic: oklch(0.922 0 0);
   --sidebar-ring-basic: oklch(0.708 0 0);
+}
 
-  /* Primary Colors - Sky Blue Theme */
+/* Sky Blue Theme */
+.sky {
   --background: #ffffff;
   --foreground: #1e293b;
   --card: #ffffff;
@@ -210,7 +213,7 @@ body {
   --priority-urgent: #ef4444;
 }
 
-/* FlowBoard Dark Theme */
+/* Dark Theme */
 .dark {
   --background: #0f172a;
   --foreground: #f8fafc;
@@ -274,51 +277,53 @@ body {
 
 /* Custom Utility Classes */
 @layer utilities {
-  /* Basic Colors */
   .bg-primary-basic {
     background-color: var(--primary-basic);
   }
-  .text-primary-basic {
-    color: var(--primary-basic);
-  }
-  .border-primary-basic {
-    border-color: var(--primary-basic);
-  }
+
   .bg-secondary-basic {
     background-color: var(--secondary-basic);
   }
-  .text-secondary-basic {
-    color: var(--secondary-basic);
-  }
-  .border-secondary-basic {
-    border-color: var(--secondary-basic);
-  }
-  .bg-accent-basic {
-    background-color: var(--accent-basic);
-  }
-  .text-accent-basic {
-    color: var(--accent-basic);
-  }
-  .border-accent-basic {
-    border-color: var(--accent-basic);
-  }
+
   .bg-foreground-basic {
     background-color: var(--foreground-basic);
   }
+
+  .text-primary-basic {
+    color: var(--primary-basic);
+  }
+
+  .text-secondary-basic {
+    color: var(--secondary-basic);
+  }
+
   .text-foreground-basic {
     color: var(--foreground-basic);
   }
-  .bg-background-basic {
-    background-color: var(--background-basic);
-  }
-  .text-background-basic {
-    color: var(--background-basic);
-  }
-  .ring-basic {
-    --tw-ring-color: var(--ring-basic);
+
+  .border-primary-basic {
+    border-color: var(--primary-basic);
   }
 
-  /* Other Utility Classes */
+  .border-secondary-basic {
+    border-color: var(--secondary-basic);
+  }
+
+  .border-foreground-basic {
+    border-color: var(--foreground-basic);
+  }
+
+  .ring-primary-basic {
+    --tw-ring-color: var(--primary-basic);
+  }
+
+  .ring-secondary-basic {
+    --tw-ring-color: var(--secondary-basic);
+  }
+
+  .ring-foreground-basic {
+    --tw-ring-color: var(--foreground-basic);
+  }
 
   .gradient-primary {
     @apply bg-gradient-to-br from-primary to-accent-foreground;

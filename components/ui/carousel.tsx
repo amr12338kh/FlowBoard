@@ -7,6 +7,7 @@ import { useRef, useState, useEffect, useMemo, useCallback } from "react";
 import { CarouselProps } from "@/types/types";
 import { useSwipeGesture } from "@/hooks/use-swipe-gesture";
 import { useDebouncedCallback } from "use-debounce";
+import React from "react";
 
 const Carousel = ({
   children,
@@ -20,6 +21,11 @@ const Carousel = ({
   buttonVariant,
   autoPlay = false,
   autoPlayInterval = 3000,
+  fullWidthPerItem = false,
+  instantSnap = false,
+  activeIndex,
+  onNext,
+  onPrev,
 }: CarouselProps) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const autoPlayRef = useRef<NodeJS.Timeout>(null);
@@ -30,10 +36,18 @@ const Carousel = ({
   const [canScrollRight, setCanScrollRight] = useState(true);
   const [isUserInteracting, setIsUserInteracting] = useState(false);
   const [currentScrollPosition, setCurrentScrollPosition] = useState(0);
+  const [activeDotIndex, setActiveDotIndex] = useState(activeIndex || 0);
+
+  const childrenCount = React.Children.count(children);
 
   // Get actual item width including gap for mobile calculations
   const getActualItemWidth = useCallback(() => {
     if (!scrollRef.current) return itemWidth + gap;
+
+    // For full width per item use the container's client width
+    if (fullWidthPerItem) {
+      return scrollRef.current.clientWidth;
+    }
 
     // On mobile use the actual rendered item width if available
     const firstChild = scrollRef.current.firstElementChild as HTMLElement;
@@ -43,7 +57,7 @@ const Carousel = ({
     }
 
     return itemWidth + gap;
-  }, [itemWidth, gap]);
+  }, [itemWidth, gap, fullWidthPerItem]);
 
   const checkScrollability = useCallback(() => {
     if (!scrollRef.current) return;
@@ -58,6 +72,9 @@ const Carousel = ({
 
   // Debounced scroll check for better performance
   const debouncedScrollCheck = useDebouncedCallback(checkScrollability, 16);
+  const debouncedSetActiveDot = useDebouncedCallback((index: number) => {
+    setActiveDotIndex(index);
+  }, 50);
 
   const containerPaddingValue = useMemo(() => {
     if (typeof window === "undefined") return 20;
@@ -84,9 +101,22 @@ const Carousel = ({
       let targetScrollLeft: number;
 
       if (direction === "left") {
+        // Trigger animations or state updates
+        onPrev?.();
+
+        // Update active dot index
+        setActiveDotIndex((prev) =>
+          prev === 0 ? childrenCount - 1 : prev - 1
+        );
+
         // Scroll left by one item width
         targetScrollLeft = Math.max(0, currentScrollPosition - actualItemWidth);
       } else {
+        // Trigger animations or state updates
+        onNext?.();
+        // Update active dot index
+        setActiveDotIndex((prev) => (prev + 1) % childrenCount);
+
         // Scroll right by one item width
         const maxScrollLeft = container.scrollWidth - container.clientWidth;
         targetScrollLeft = Math.min(
@@ -103,23 +133,50 @@ const Carousel = ({
       // Use scrollTo for more precise positioning
       container.scrollTo({
         left: targetScrollLeft,
-        behavior: "smooth",
+        behavior: instantSnap ? "auto" : "smooth",
       });
 
       // Reset flags after animation completes
-      scrollTimeoutRef.current = setTimeout(() => {
-        isScrollingRef.current = false;
-        setIsUserInteracting(false);
-        checkScrollability(); // Force check after scroll completes
-      }, 600); // Slightly longer timeout for mobile
+      scrollTimeoutRef.current = setTimeout(
+        () => {
+          isScrollingRef.current = false;
+          setIsUserInteracting(false);
+          checkScrollability(); // Force check after scroll completes
+        },
+        instantSnap ? 100 : 600
+      ); // Slightly longer timeout for mobile
     },
     [
-      currentScrollPosition,
       getActualItemWidth,
+      instantSnap,
+      onPrev,
+      currentScrollPosition,
+      childrenCount,
+      onNext,
       containerPaddingValue,
       checkScrollability,
     ]
   );
+
+  // Sync active dot index
+  useEffect(() => {
+    if (typeof activeIndex === "number") {
+      setActiveDotIndex(activeIndex);
+      const container = scrollRef.current;
+      if (!container) return;
+
+      const actualItemWidth = getActualItemWidth();
+      const targetScrollLeft = actualItemWidth * activeIndex;
+
+      container.scrollTo({
+        left: targetScrollLeft,
+        behavior: instantSnap ? "auto" : "smooth",
+      });
+
+      setCurrentScrollPosition(targetScrollLeft);
+      checkScrollability();
+    }
+  }, [activeIndex, getActualItemWidth, instantSnap, checkScrollability]);
 
   // Auto play functionality
   useEffect(() => {
@@ -132,11 +189,17 @@ const Carousel = ({
         // Reset to beginning when reaching the end
         if (scrollRef.current && !isScrollingRef.current) {
           isScrollingRef.current = true;
-          scrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
-          setTimeout(() => {
-            isScrollingRef.current = false;
-            checkScrollability();
-          }, 600);
+          scrollRef.current.scrollTo({
+            left: 0,
+            behavior: instantSnap ? "auto" : "smooth",
+          });
+          setTimeout(
+            () => {
+              isScrollingRef.current = false;
+              checkScrollability();
+            },
+            instantSnap ? 100 : 600
+          );
         }
       }
     }, autoPlayInterval);
@@ -154,6 +217,7 @@ const Carousel = ({
     autoPlayInterval,
     isUserInteracting,
     checkScrollability,
+    instantSnap,
   ]);
 
   // Keyboard navigation
@@ -187,10 +251,21 @@ const Carousel = ({
 
   // Scroll event handler
   const handleScroll = useCallback(() => {
-    if (!isScrollingRef.current) {
-      debouncedScrollCheck();
-    }
-  }, [debouncedScrollCheck]);
+    if (!scrollRef.current) return;
+
+    const container = scrollRef.current;
+    const actualItemWidth = getActualItemWidth();
+    const newScrollPosition = container.scrollLeft;
+
+    // Calculate the active index based on scroll position
+    const index = Math.round(newScrollPosition / actualItemWidth);
+
+    debouncedSetActiveDot(index); // Update the active dot index
+    setCurrentScrollPosition(newScrollPosition); // Update scroll position state
+
+    // Check if you can scroll left/right to enable/disable buttons
+    debouncedScrollCheck();
+  }, [getActualItemWidth, debouncedSetActiveDot, debouncedScrollCheck]);
 
   useEffect(() => {
     const container = scrollRef.current;
@@ -234,7 +309,25 @@ const Carousel = ({
         clearTimeout(scrollTimeoutRef.current);
       }
     };
-  }, [checkScrollability, handleScroll]);
+  }, [checkScrollability, handleScroll, activeDotIndex]);
+
+  const handleDotClick = (index: number) => {
+    setActiveDotIndex(index);
+
+    const container = scrollRef.current;
+    if (!container) return;
+
+    const actualItemWidth = getActualItemWidth();
+    const targetScrollLeft = actualItemWidth * index;
+
+    container.scrollTo({
+      left: targetScrollLeft,
+      behavior: instantSnap ? "auto" : "smooth",
+    });
+
+    setCurrentScrollPosition(targetScrollLeft);
+    checkScrollability();
+  };
 
   return (
     <div
@@ -248,7 +341,10 @@ const Carousel = ({
       {showNavigation && (
         <div
           className={cn(
-            "hidden sm:flex gap-3 justify-end mb-5 px-[max(1.25rem,calc((100vw-1450px)/2))]",
+            "hidden sm:flex gap-3 justify-end mb-5",
+            fullWidthPerItem
+              ? "px-10"
+              : "px-[max(1.25rem,calc((100vw-1450px)/2))]",
             buttonsContainerClassName
           )}
           role="group"
@@ -285,14 +381,18 @@ const Carousel = ({
       <div
         ref={scrollRef}
         className={cn(
-          "flex overflow-x-auto scroll-smooth scrollbar-hide focus:outline-none focus:ring-2 focus:ring-primary/20 rounded-lg [webkit-overflow-scrolling:touch] snap-x snap-mandatory",
+          "flex p-2 overflow-x-auto scroll-smooth scrollbar-hide rounded-lg [webkit-overflow-scrolling:touch]",
+          fullWidthPerItem
+            ? "snap-x snap-mandatory"
+            : "focus:outline-none focus:ring-2 focus:ring-primary/10",
+          instantSnap ? "scroll-auto" : "scroll-smooth",
           "overflow-x-scroll", // Add momentum scrolling for ios
           carouselClassName
         )}
         style={{
-          paddingLeft: containerPadding,
-          paddingRight: containerPadding,
-          gap: `${gap}px`,
+          paddingLeft: fullWidthPerItem ? "0" : containerPadding,
+          paddingRight: fullWidthPerItem ? "0" : containerPadding,
+          gap: fullWidthPerItem ? "0px" : `${gap}px`,
         }}
         role="group"
         aria-label="Carousel items"
@@ -306,7 +406,31 @@ const Carousel = ({
           setTimeout(() => setIsUserInteracting(false), 300);
         }}
       >
-        {children}
+        {fullWidthPerItem
+          ? React.Children.map(children, (child, index) => (
+              <div
+                key={index}
+                className="flex-shrink-0 w-full snap-start"
+                style={{ minWidth: "100%" }}
+              >
+                {child}
+              </div>
+            ))
+          : children}
+      </div>
+
+      <div className="flex justify-center gap-1 mt-4 sm:hidden">
+        {Array.from({ length: childrenCount }).map((_, index) => (
+          <button
+            key={index}
+            className={cn(
+              "w-2 h-2 rounded-full transition-colors",
+              activeDotIndex === index ? "bg-primary" : "bg-muted-foreground/20"
+            )}
+            onClick={() => handleDotClick(index)}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
       </div>
 
       {/* Screen reader instructions */}

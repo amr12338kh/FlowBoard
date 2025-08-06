@@ -20,7 +20,7 @@ const Demo = () => {
         <DemoAnimation />
 
         <Link href="/login" className="mt-10">
-          <Button className="p-6 sm:p-8 sm:text-lg rounded-full bg-transparent border border-primary text-primary hover:bg-primary/10 font-medium w-full">
+          <Button variant="transparent" size="wide">
             Get Started For Free
           </Button>
         </Link>
