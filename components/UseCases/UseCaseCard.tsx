@@ -1,33 +1,9 @@
-import { Container } from "./Layouts/Container";
-import Section from "./Layouts/Section";
-import { Card, CardContent } from "./ui/card";
-import { useCases } from "@/data/data";
 import { ArrowRight, CheckCircle, TrendingUp } from "lucide-react";
-import { Badge } from "./ui/badge";
-import Link from "next/link";
-import { Button } from "./ui/button";
-import Carousel from "./ui/carousel";
+import { Badge } from "../ui/badge";
+import { Card, CardContent } from "../ui/card";
 import { UseCasesProps } from "@/types/types";
-import { SectionTitle, TitleGradient } from "./Layouts/Heading";
-
-const UseCases = () => {
-  return (
-    <Section>
-      <Container>
-        <SectionTitle>
-          See how <TitleGradient>FlowBoard</TitleGradient> keeps work moving
-          across use cases
-        </SectionTitle>
-      </Container>
-
-      <Carousel gap={30}>
-        {useCases.map((useCase, i) => (
-          <UseCaseCard key={i} useCase={useCase} />
-        ))}
-      </Carousel>
-    </Section>
-  );
-};
+import Link from "next/link";
+import { Button } from "../ui/button";
 
 const UseCaseCard = ({ useCase }: { useCase: UseCasesProps }) => {
   return (
@@ -90,4 +66,4 @@ const UseCaseCard = ({ useCase }: { useCase: UseCasesProps }) => {
   );
 };
 
-export default UseCases;
+export default UseCaseCard;
