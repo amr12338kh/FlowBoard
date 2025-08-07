@@ -131,3 +131,10 @@ export interface TestimonialsProps {
   company: string;
   companyColor: string;
 }
+
+// Get Started
+export interface GetStartedCardProps {
+  title: string;
+  subtitle: string;
+  href: string;
+}

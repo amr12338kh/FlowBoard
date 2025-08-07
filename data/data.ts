@@ -1,6 +1,7 @@
 import {
   DropdownItemProps,
   FeatureProps,
+  GetStartedCardProps,
   NavigationItemProps,
   NotificationsProps,
   TestimonialsProps,
@@ -469,5 +470,23 @@ export const testimonials: TestimonialsProps[] = [
     role: "Product Marketing Lead",
     company: "Vercel",
     companyColor: "#000000",
+  },
+];
+
+export const getStarted: GetStartedCardProps[] = [
+  {
+    title: "Try the FlowBoard demo",
+    subtitle: "See FlowBoard in action",
+    href: "#",
+  },
+  {
+    title: "Discover resources",
+    subtitle: "Help articles and tutorials",
+    href: "#",
+  },
+  {
+    title: "Start with a template",
+    subtitle: "Get started faster with a template",
+    href: "#",
   },
 ];

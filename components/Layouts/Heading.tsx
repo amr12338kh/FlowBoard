@@ -14,7 +14,7 @@ const SectionTitle = ({
     <div className={cn("max-w-3xl sm:mb-8 mb-4", containerClassName)}>
       <h2
         className={cn(
-          "text-3xl sm:text-4xl md:text-5xl font-[600] tracking-tight",
+          "text-3xl sm:text-4xl md:text-6xl font-[600] tracking-tighter",
           titleClassName
         )}
       >
@@ -38,4 +38,23 @@ const TitleGradient = ({
   );
 };
 
-export { SectionTitle, TitleGradient };
+const Subtitle = ({
+  children,
+  subtitleClassName,
+}: {
+  children: React.ReactNode;
+  subtitleClassName?: string;
+}) => {
+  return (
+    <p
+      className={cn(
+        "text-foreground/90 text-sm sm:text-base md:text-lg font-medium max-w-lg",
+        subtitleClassName
+      )}
+    >
+      {children}
+    </p>
+  );
+};
+
+export { SectionTitle, TitleGradient, Subtitle };

@@ -27,14 +27,14 @@ const Testimonials = () => {
         <SectionTitle containerClassName="mb-0!">
           The world&apos;s top companies trust{" "}
           <TitleGradient>FlowBoard</TitleGradient>
-          <div className="flex mt-6">
-            <Link href="#">
-              <Button variant="transparent" size="wide">
-                See all case studies
-              </Button>
-            </Link>
-          </div>
         </SectionTitle>
+        <div className="flex mt-6">
+          <Link href="#">
+            <Button variant="transparent" size="wide">
+              See all case studies
+            </Button>
+          </Link>
+        </div>
         <div className="hidden sm:block">
           <Carousel
             // autoPlay
