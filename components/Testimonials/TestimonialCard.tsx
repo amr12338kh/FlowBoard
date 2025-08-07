@@ -72,12 +72,12 @@ const TestimonialCard = ({
   return (
     <div
       ref={containerRef}
-      className="flex flex-col lg:flex-row border border-muted-foreground/20 flex-shrink-0 w-full sm:min-h-[560px] rounded-2xl overflow-hidden testimonial-card"
+      className="flex flex-col lg:flex-row border border-muted-foreground/20 flex-shrink-0 w-full sm:min-h-[460px] lg:min-h-[560px] rounded-2xl overflow-hidden testimonial-card"
     >
       {/* Left side */}
       <div className="lg:w-[30%] lg:px-10 sm:py-4 lg:py-16 flex flex-col items-center lg:items-start lg:justify-between">
         {/* Top */}
-        <div className="h-36 w-36 testimonial-logo flex items-center">
+        <div className="h-36 w-36 testimonial-logo flex items-center lg:flex-col">
           <img src={testimonial.logo} alt={testimonial.company} />
         </div>
 
@@ -112,17 +112,17 @@ const TestimonialCard = ({
           backgroundColor: `${hexToRGBA(testimonial.companyColor, 0.2, 50)}`,
         }}
       >
-        <div className="p-5 sm:p-16 space-y-8 flex flex-col justify-between sm:h-[560px]">
+        <div className="p-5 sm:p-16 space-y-8 flex flex-col justify-between sm:h-[460px] lg:h-[560px]">
           <div className="flex items-start gap-2 sm:gap-4 testimonial-paragraph">
             <div>
               <BiSolidQuoteAltLeft
-                className="size-5 sm:size-8"
+                className="size-5 sm:size-6 lg:size-8"
                 style={{ color: textColor }}
               />
             </div>
             <div className="space-y-10">
               <p
-                className="text-base sm:text-4xl italic"
+                className="text-base sm:text-2xl md:text-3xl lg:text-4xl italic"
                 style={{ color: textColor }}
               >
                 {testimonial.testimonial}
@@ -154,7 +154,7 @@ const TestimonialCard = ({
               <Button
                 variant="transparent"
                 size="wide"
-                className="text-xs sm:text-lg"
+                className="text-xs sm:text-base lg:text-lg"
                 style={{
                   color: textColor,
                   borderColor: textColor,
