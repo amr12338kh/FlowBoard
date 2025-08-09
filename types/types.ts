@@ -138,3 +138,21 @@ export interface GetStartedCardProps {
   subtitle: string;
   href: string;
 }
+
+// Pricing
+export interface PricingPlanProps {
+  name: string;
+  description: string;
+  price?: number;
+  features: string[];
+  mostPopular?: boolean;
+  cta?: string;
+  priceDescription?: string;
+}
+
+export interface PricingCardProps {
+  pricing: PricingPlanProps;
+  prevPlan?: PricingPlanProps;
+  isOpen: boolean;
+  onClick: () => void;
+}

@@ -4,6 +4,7 @@ import {
   GetStartedCardProps,
   NavigationItemProps,
   NotificationsProps,
+  PricingPlanProps,
   TestimonialsProps,
   UseCasesProps,
 } from "@/types/types";
@@ -45,8 +46,6 @@ import {
   Type,
   BellRing,
 } from "lucide-react";
-
-/* Header */
 
 // Marketing Header Navigation (Like Asana)
 export const navigationItems: NavigationItemProps[] = [
@@ -473,6 +472,7 @@ export const testimonials: TestimonialsProps[] = [
   },
 ];
 
+// Get Started
 export const getStarted: GetStartedCardProps[] = [
   {
     title: "Try the FlowBoard demo",
@@ -488,5 +488,89 @@ export const getStarted: GetStartedCardProps[] = [
     title: "Start with a template",
     subtitle: "Get started faster with a template",
     href: "#",
+  },
+];
+
+// Pricing
+export const pricingPlans: PricingPlanProps[] = [
+  {
+    name: "Personal",
+    price: 0,
+    priceDescription: "Free forever",
+    description:
+      "For individuals or teams just getting started with project management.",
+    features: [
+      "Collaborate with up to 10 teammates",
+      "Unlimited tasks",
+      "Unlimited projects",
+      "Unlimited messages",
+      "List view projects",
+      "Board view projects",
+      "Basic search filters",
+      "Status updates",
+      "iOS and Android mobile apps",
+    ],
+    cta: "Get Started",
+    mostPopular: false,
+  },
+  {
+    name: "Starter",
+    price: 10.99,
+    priceDescription:
+      "Per user, per month billed annually US$ 13.49 billed monthly",
+    description: "For small teams needing to manage work with confidence.",
+    features: [
+      "FlowBoard AI",
+      "No user seat limits",
+      "Timeline and Gantt view",
+      "Project dashboards",
+      "Advanced search",
+      "Unlimited automation",
+      "Custom project templates",
+      "Private teams & projects",
+      "Unlimited free guests",
+    ],
+    cta: "Get Started",
+    mostPopular: true,
+  },
+  {
+    name: "Advanced",
+    price: 24.99,
+    priceDescription:
+      "Per user, per month billed annually US$ 30.49 billed monthly",
+    description:
+      "For growing teams that need to track work across initiatives.",
+    features: [
+      "FlowBoard AI",
+      "No user seat limits",
+      "Goals",
+      "Unlimited portfolios",
+      "Workload",
+      "Approvals",
+      "Lock custom fields",
+      "Time tracking",
+      "Scaled security",
+    ],
+    cta: "Get Started",
+    mostPopular: false,
+  },
+  {
+    name: "Enterprise",
+    priceDescription: "Contact sales for pricing details",
+    description:
+      "For organizations that need enterprise-grade security & support.",
+    features: [
+      "FlowBoard AI",
+      "No user seat limits",
+      "Workflow bundles",
+      "Resource management",
+      "Service accounts",
+      "Guest invite permissions",
+      "Mobile app controls",
+      "Admin announcements",
+      "24/7 support,",
+    ],
+    cta: "Contact Sales",
+    mostPopular: false,
   },
 ];

@@ -3,6 +3,7 @@ import Demo from "@/components/Demo/Demo";
 import Features from "@/components/Features";
 import GetStarted from "@/components/GetStarted/GetStarted";
 import Hero from "@/components/Hero";
+import Pricing from "@/components/Pricing/Pricing";
 import Testimonials from "@/components/Testimonials/Testimonials";
 import UseCases from "@/components/UseCases/UseCases";
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
       <Demo />
       <Testimonials />
       <GetStarted />
+      <Pricing />
     </main>
   );
 }
