@@ -12,6 +12,22 @@ export const formatDate = (date: Date) => {
 
 // Convert HEX to RGBA
 export const hexToRGBA = (hex: string, opacity: number, lighten = 20) => {
+  // Check if we're in a browser environment
+  if (typeof window === "undefined" || typeof document === "undefined") {
+    // Return a default color or the original hex if it's not a css variable
+    if (hex.startsWith("var(")) {
+      return "#000000"; // Fallback color
+    }
+    // If it's already a hex color process it normally
+  } else {
+    if (hex.startsWith("var(")) {
+      const computedValue = getComputedStyle(document.documentElement)
+        .getPropertyValue(hex.slice(4, -1)) // Remove 'var(' and ')'
+        .trim();
+      hex = computedValue || hex;
+    }
+  }
+
   let sanitizedHex = hex.replace("#", "");
   if (sanitizedHex.length === 3) {
     sanitizedHex = sanitizedHex
@@ -34,6 +50,22 @@ export const hexToRGBA = (hex: string, opacity: number, lighten = 20) => {
 };
 
 export const darkenHexColor = (hex: string, amount = 20) => {
+  // Check if we're in a browser environment
+  if (typeof window === "undefined" || typeof document === "undefined") {
+    // Return a default color or the original hex if it's not a css variable
+    if (hex.startsWith("var(")) {
+      return "#000000"; // Fallback color
+    }
+    // If it's already a hex color process it normally
+  } else {
+    if (hex.startsWith("var(")) {
+      const computedValue = getComputedStyle(document.documentElement)
+        .getPropertyValue(hex.slice(4, -1)) // Remove 'var(' and ')'
+        .trim();
+      hex = computedValue || hex;
+    }
+  }
+
   let sanitizedHex = hex.replace("#", "");
   if (sanitizedHex.length === 3) {
     sanitizedHex = sanitizedHex
@@ -43,6 +75,11 @@ export const darkenHexColor = (hex: string, amount = 20) => {
   }
 
   const bigint = parseInt(sanitizedHex, 16);
+  if (isNaN(bigint)) {
+    console.warn(`Invalid hex color: ${hex}`);
+    return "#000000"; // Fallback
+  }
+
   let r = (bigint >> 16) & 255;
   let g = (bigint >> 8) & 255;
   let b = bigint & 255;

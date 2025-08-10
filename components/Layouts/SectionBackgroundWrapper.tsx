@@ -5,6 +5,7 @@ import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { cn } from "@/lib/utils";
+import Section from "./Section";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,13 +14,17 @@ const SectionBackgroundWrapper = ({
   className,
   id,
   isTop,
+  variant = "primary",
+  color = "main",
 }: {
   children: React.ReactNode;
   className?: string;
   id?: string;
   isTop?: boolean;
+  variant?: "primary" | "secondary";
+  color?: "main" | "gary";
 }) => {
-  const bgRef = useRef<HTMLElement>(null);
+  const bgRef = useRef<HTMLDivElement | null>(null);
 
   useGSAP(() => {
     if (!bgRef.current) return;
@@ -50,14 +55,28 @@ const SectionBackgroundWrapper = ({
     };
   }, []);
 
-  return (
-    <section
+  return variant === "primary" ? (
+    <Section
       id={id || "#"}
       ref={bgRef}
-      className={cn("w-full mx-auto lg:min-h-screen bg-accent", className)}
+      className={cn(
+        "w-full mx-auto lg:min-h-screen bg-primary/25 py-20! sm:py-28!",
+        className
+      )}
     >
       {children}
-    </section>
+    </Section>
+  ) : (
+    <Section
+      id={id}
+      className={cn(
+        "xl:rounded-2xl max-w-[1550px] mx-auto",
+        color === "main" ? "bg-primary/25" : "bg-[var(--primary-basic)]/2",
+        className
+      )}
+    >
+      <div className="py-6 sm:py-12">{children}</div>
+    </Section>
   );
 };
 

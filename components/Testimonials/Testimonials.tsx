@@ -6,8 +6,6 @@ import { TitleGradient, SectionTitle } from "../Layouts/Heading";
 import { testimonials } from "@/data/data";
 import Carousel from "../ui/carousel";
 import TestimonialCard from "./TestimonialCard";
-import Link from "next/link";
-import { Button } from "../ui/button";
 import { useState } from "react";
 
 const Testimonials = () => {
@@ -32,6 +30,7 @@ const Testimonials = () => {
           <Carousel
             // autoPlay
             // autoPlayInterval={5000}
+            containerPadding="40px"
             fullWidthPerItem
             instantSnap={true}
             onNext={handleNext}

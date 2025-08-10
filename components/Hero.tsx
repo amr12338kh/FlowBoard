@@ -87,7 +87,7 @@ const Hero = () => {
 
   return (
     <SectionBackgroundWrapper id="home">
-      <Container className="pt-28 pb-10 sm:py-32 space-y-14 min-h-fit hero-container opacity-0">
+      <Container className="space-y-14 min-h-fit hero-container opacity-0">
         <div
           className="text-center space-y-6 sm:space-y-10 max-w-4xl mx-auto"
           ref={contentRef}
@@ -103,7 +103,7 @@ const Hero = () => {
           </div>
 
           <h1 className="hero-title text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-[1.1]">
-            Where your teams and{""}
+            Where your teams and{" "}
             <span className="gradient-text-primary">AI coordinate</span> work
             together
           </h1>

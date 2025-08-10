@@ -327,7 +327,7 @@ const Carousel = ({
 
   return (
     <div
-      className={cn("w-full relative py-4", containerClassName)}
+      className={cn("w-full relative", containerClassName)}
       role="region"
       aria-label="carousel"
       onKeyDown={handleKeyDown}
@@ -337,12 +337,17 @@ const Carousel = ({
       {showNavigation && (
         <div
           className={cn(
-            "hidden sm:flex gap-3 justify-end mb-5",
-            fullWidthPerItem
-              ? "px-10"
-              : "px-[max(1.25rem,calc((100vw-1450px)/2))]",
+            "hidden sm:flex gap-3 justify-end mb-4",
             buttonsContainerClassName
           )}
+          style={
+            containerPadding
+              ? {
+                  paddingLeft: containerPadding,
+                  paddingRight: containerPadding,
+                }
+              : {}
+          }
           role="group"
           aria-label="Carousel navigation"
         >

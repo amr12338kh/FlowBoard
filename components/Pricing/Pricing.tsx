@@ -21,7 +21,10 @@ const Pricing = () => {
   return (
     <Section>
       <Container>
-        <SectionTitle containerClassName="text-center max-w-[100%]">
+        <SectionTitle
+          titleClassName="text-center max-w-[100%]"
+          containerClassName="flex justify-center"
+        >
           Organize your team&apos;s work in one spot
         </SectionTitle>
 

@@ -281,7 +281,7 @@ const DemoAnimation = () => {
   return (
     <div
       ref={containerRef}
-      className="relative mt-10 md:mt-12 w-full max-w-5xl min-h-[300px] md:aspect-video rounded-2xl overflow-hidden md:bg-accent"
+      className="relative mt-10 md:mt-12 w-full max-w-5xl min-h-[300px] md:aspect-video rounded-2xl overflow-hidden lg:shadow-md lg:bg-gradient-to-br from-slate-50 to-white"
     >
       <div className="h-full flex flex-col items-center justify-center space-y-4">
         <div className="w-full md:w-[700px] bg-white h-fit rounded-md md:shadow-md mb-6 md:mb-0 md:p-8 text-start ai-container overflow-hidden">
@@ -352,7 +352,7 @@ const DemoAnimation = () => {
                   <span className="text-muted-foreground">assigned to</span>
                 </span>
               </div>
-              <div className="w-fit bg-primary/20 flex items-start sm:items-center gap-2 pr-2 rounded ai-lucas">
+              <div className="w-fit bg-primary/20 flex items-center gap-2 pr-2 rounded ai-lucas">
                 <div className="p-0.5 gradient-primary rounded-l">
                   <User2 className="size-5 sm:size-6 text-accent" />
                 </div>
@@ -361,7 +361,7 @@ const DemoAnimation = () => {
                 </span>
               </div>
             </div>
-            <span className="text-muted-foreground ai-deadline-text text-start sm:mt-2">
+            <span className="text-muted-foreground ai-deadline-text text-start sm:mt-2 pl-2">
               Thinking
               <span className="thinking-dots">...</span>
             </span>

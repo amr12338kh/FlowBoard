@@ -1,16 +1,16 @@
 import { Container } from "@/components/Layouts/Container";
 import { SectionTitle, Subtitle } from "../Layouts/Heading";
-import Section from "../Layouts/Section";
 import { getStarted } from "@/data/data";
 import GetStartedCard from "./GetStartedCard";
+import SectionBackgroundWrapper from "../Layouts/SectionBackgroundWrapper";
 
 const GetStarted = () => {
   return (
-    <Section>
-      <Container className="bg-[var(--primary-basic)]/2 xl:rounded-2xl">
-        <div className="grid grid-cols-1 gap-8 sm:gap-10 xl:gap-0 xl:grid-cols-2 px-2 sm:px-10 py-8 xl:py-28">
+    <SectionBackgroundWrapper variant="secondary" color="gary">
+      <Container>
+        <div className="grid grid-cols-1 gap-8 sm:gap-10 xl:gap-0 xl:grid-cols-2">
           <div>
-            <SectionTitle containerClassName="mb-2! sm:mb-4! md:mb-6!">
+            <SectionTitle containerClassName="mb-2! sm:mb-4! md:mb-5!">
               Get started easily
             </SectionTitle>
             <Subtitle>
@@ -26,7 +26,7 @@ const GetStarted = () => {
           </div>
         </div>
       </Container>
-    </Section>
+    </SectionBackgroundWrapper>
   );
 };
 

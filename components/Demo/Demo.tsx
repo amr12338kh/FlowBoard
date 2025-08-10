@@ -1,5 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { SectionTitle, TitleGradient } from "@/components/Layouts/Heading";
+import {
+  SectionTitle,
+  TitleGradient,
+  Subtitle,
+} from "@/components/Layouts/Heading";
 import Section from "../Layouts/Section";
 import { Container } from "../Layouts/Container";
 import Link from "next/link";
@@ -12,10 +16,10 @@ const Demo = () => {
         <SectionTitle containerClassName="sm:mb-0 mb-0">
           See <TitleGradient>FlowBoard AI</TitleGradient> in action
         </SectionTitle>
-        <p className="max-w-xl mt-4 text-muted-foreground">
+        <Subtitle>
           Watch how FlowBoard automates workflows, prioritizes tasks, and keeps
           your team aligned — effortlessly.
-        </p>
+        </Subtitle>
 
         <DemoAnimation />
 

@@ -3,20 +3,23 @@ import React from "react";
 
 const SectionTitle = ({
   children,
+  style,
   containerClassName,
   titleClassName,
 }: {
   children: React.ReactNode;
+  style?: React.CSSProperties;
   containerClassName?: string;
   titleClassName?: string;
 }) => {
   return (
-    <div className={cn("max-w-3xl sm:mb-8 mb-4", containerClassName)}>
+    <div className={cn("sm:mb-8 mb-4", containerClassName)}>
       <h2
         className={cn(
-          "text-3xl sm:text-4xl md:text-6xl font-[600] tracking-tighter",
+          "text-3xl sm:text-4xl md:text-6xl font-bold sm:max-w-4xl ",
           titleClassName
         )}
+        style={style}
       >
         {children}
       </h2>
@@ -32,7 +35,7 @@ const TitleGradient = ({
   className?: string;
 }) => {
   return (
-    <span className={cn("gradient-text-primary font-black", className)}>
+    <span className={cn("gradient-text-primary font-bold", className)}>
       {children}
     </span>
   );
@@ -48,7 +51,7 @@ const Subtitle = ({
   return (
     <p
       className={cn(
-        "text-foreground/90 text-sm sm:text-base md:text-lg font-medium max-w-lg",
+        "max-w-xl mt-4 text-muted-foreground text-sm sm:text-base md:text-lg font-medium",
         subtitleClassName
       )}
     >
