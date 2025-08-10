@@ -70,7 +70,7 @@ const SectionBackgroundWrapper = ({
     <Section
       id={id}
       className={cn(
-        "xl:rounded-2xl max-w-[1550px] mx-auto",
+        "xl:rounded-2xl max-w-[1550px] mx-auto my-16",
         color === "main" ? "bg-primary/25" : "bg-[var(--primary-basic)]/2",
         className
       )}
