@@ -156,3 +156,14 @@ export interface PricingCardProps {
   isOpen: boolean;
   onClick: () => void;
 }
+
+export interface FooterLinkProps {
+  name: string;
+  href: string;
+  badge?: string;
+}
+
+export interface FooterSectionProps {
+  title: string;
+  links: FooterLinkProps[];
+}

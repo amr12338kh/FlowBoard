@@ -17,9 +17,9 @@ const CTA = () => {
   return (
     <SectionBackgroundWrapper
       isTop
-      className="min-h-[500px]! sm:py-0! sm:pt-28! sm:pb-6! h-full"
+      className="min-[200px] sm:min-h-[500px]! sm:py-0! sm:pt-28! sm:pb-6! h-full"
     >
-      <Container className="flex flex-col justify-between min-h-[400px] h-full">
+      <Container className="flex flex-col sm:justify-between sm:min-h-[400px] h-full">
         <div className="flex flex-col items-center gap-5">
           <h2
             className="text-3xl sm:text-4xl md:text-6xl font-bold max-w-3xl text-center"
@@ -38,7 +38,7 @@ const CTA = () => {
             </Button>
           </Link>
         </div>
-        <Separator className="bg-muted-foreground/25" />
+        <Separator className="bg-muted-foreground/25 hidden sm:block" />
       </Container>
     </SectionBackgroundWrapper>
   );

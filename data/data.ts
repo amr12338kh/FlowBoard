@@ -1,6 +1,7 @@
 import {
   DropdownItemProps,
   FeatureProps,
+  FooterSectionProps,
   GetStartedCardProps,
   NavigationItemProps,
   NotificationsProps,
@@ -18,7 +19,6 @@ import {
   Zap,
   Star,
   HeadphonesIcon,
-  Building2,
   Sparkles,
   Target,
   TrendingUp,
@@ -45,7 +45,15 @@ import {
   LayoutDashboard,
   Type,
   BellRing,
+  Building2,
 } from "lucide-react";
+import {
+  FaFacebook,
+  FaInstagram,
+  FaLinkedin,
+  FaXTwitter,
+  FaYoutube,
+} from "react-icons/fa6";
 
 // Marketing Header Navigation (Like Asana)
 export const navigationItems: NavigationItemProps[] = [
@@ -574,3 +582,232 @@ export const pricingPlans: PricingPlanProps[] = [
     mostPopular: false,
   },
 ];
+
+// Footer
+export const footerData: FooterSectionProps[] = [
+  {
+    title: "Product",
+    links: [
+      {
+        name: "Features",
+        href: "/features",
+      },
+      {
+        name: "AI Assistant",
+        href: "/ai-features",
+        badge: "New",
+      },
+      {
+        name: "Kanban Boards",
+        href: "/kanban",
+      },
+      {
+        name: "Analytics",
+        href: "/analytics",
+      },
+      {
+        name: "Integrations",
+        href: "/integrations",
+      },
+      {
+        name: "Security",
+        href: "/security",
+      },
+      {
+        name: "Mobile Apps",
+        href: "/mobile",
+      },
+    ],
+  },
+  {
+    title: "Solutions",
+    links: [
+      {
+        name: "For Teams",
+        href: "/solutions/teams",
+      },
+      {
+        name: "For Enterprise",
+        href: "/solutions/enterprise",
+      },
+      {
+        name: "For Startups",
+        href: "/solutions/startups",
+      },
+      {
+        name: "For Agencies",
+        href: "/solutions/agencies",
+      },
+      {
+        name: "For Developers",
+        href: "/solutions/developers",
+      },
+      {
+        name: "For Non-profits",
+        href: "/solutions/nonprofits",
+      },
+    ],
+  },
+  {
+    title: "Resources",
+    links: [
+      {
+        name: "Documentation",
+        href: "/docs",
+      },
+      {
+        name: "Blog",
+        href: "/blog",
+      },
+      {
+        name: "Help Center",
+        href: "/help",
+      },
+      {
+        name: "Templates",
+        href: "/templates",
+      },
+      {
+        name: "Webinars",
+        href: "/webinars",
+      },
+      {
+        name: "Case Studies",
+        href: "/case-studies",
+      },
+      {
+        name: "FlowBoard Academy",
+        href: "/academy",
+      },
+    ],
+  },
+  {
+    title: "AI Features",
+    links: [
+      {
+        name: "Automation",
+        href: "/ai-features/automation",
+      },
+      {
+        name: "Smart Prioritization",
+        href: "/ai-features/prioritization",
+      },
+      {
+        name: "Deadline Prediction",
+        href: "/ai-features/deadlines",
+      },
+      {
+        name: "Auto Summaries",
+        href: "/ai-features/summaries",
+      },
+      {
+        name: "Smart Insights",
+        href: "/ai-features/insights",
+      },
+      {
+        name: "Quick Task Creation",
+        href: "/ai-features/quick-add",
+      },
+      {
+        name: "Smart Notifications",
+        href: "/ai-features/alerts",
+      },
+    ],
+  },
+  {
+    title: "Use Cases",
+    links: [
+      {
+        name: "Project Management",
+        href: "/use-cases/project-management",
+      },
+      {
+        name: "Task Management",
+        href: "/use-cases/task-management",
+      },
+      {
+        name: "Team Collaboration",
+        href: "/use-cases/collaboration",
+      },
+      {
+        name: "Sprint Planning",
+        href: "/use-cases/agile",
+      },
+      {
+        name: "Campaign Management",
+        href: "/use-cases/marketing",
+      },
+      {
+        name: "Product Development",
+        href: "/use-cases/product",
+      },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      {
+        name: "About Us",
+        href: "/about",
+      },
+      {
+        name: "Careers",
+        href: "/careers",
+      },
+      {
+        name: "Press",
+        href: "/press",
+      },
+      {
+        name: "Investor Relations",
+        href: "/investors",
+      },
+      {
+        name: "Contact Us",
+        href: "/contact",
+      },
+      {
+        name: "Privacy Policy",
+        href: "/privacy",
+      },
+      {
+        name: "Terms of Service",
+        href: "/terms",
+      },
+    ],
+  },
+];
+
+export const socialLinks = [
+  {
+    name: "LinkedIn",
+    href: "#",
+    icon: FaLinkedin,
+  },
+  {
+    name: "Twitter",
+    href: "#",
+    icon: FaXTwitter,
+  },
+  {
+    name: "Facebook",
+    href: "#",
+    icon: FaFacebook,
+  },
+  {
+    name: "Instagram",
+    href: "#",
+    icon: FaInstagram,
+  },
+  {
+    name: "YouTube",
+    href: "",
+    icon: FaYoutube,
+  },
+];
+
+export const footerCopyright = {
+  year: new Date().getFullYear(),
+  company: "FlowBoard, Inc.",
+  allRightsReserved: "All rights reserved.",
+};

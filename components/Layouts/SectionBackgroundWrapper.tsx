@@ -14,6 +14,7 @@ const SectionBackgroundWrapper = ({
   className,
   id,
   isTop,
+  none,
   variant = "primary",
   color = "main",
 }: {
@@ -21,6 +22,7 @@ const SectionBackgroundWrapper = ({
   className?: string;
   id?: string;
   isTop?: boolean;
+  none?: boolean;
   variant?: "primary" | "secondary";
   color?: "main" | "gary";
 }) => {
@@ -58,7 +60,7 @@ const SectionBackgroundWrapper = ({
   return variant === "primary" ? (
     <Section
       id={id || "#"}
-      ref={bgRef}
+      ref={none ? undefined : bgRef}
       className={cn(
         "w-full mx-auto lg:min-h-screen bg-primary/25 py-20! sm:py-28!",
         className
