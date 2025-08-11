@@ -52,13 +52,12 @@ const UseCaseCard = ({ useCase }: { useCase: UseCasesProps }) => {
           </div>
 
           <Link href={useCase.href}>
-            <Button
-              variant="ghost"
-              className="w-full justify-between group-hover:bg-primary/5 transition-colors group"
-            >
+            <p className="w-full flex items-center gap-4 hover:bg-transparent group hover:opacity-85 sm:text-lg font-semibold">
               {useCase.cta}
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
+              <span className="p-1 rounded-full bg-primary-basic text-white group-hover:translate-x-1 transition-transform">
+                <ArrowRight className="size-3.5 sm:size-4" />
+              </span>
+            </p>
           </Link>
         </CardContent>
       </Card>
