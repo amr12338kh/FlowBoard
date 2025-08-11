@@ -23,7 +23,7 @@ const Header = async ({ className, notificationCount = 3 }: HeaderProps) => {
     >
       <Container padding="sm" className="mx-auto">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-5 lg:gap-10">
+          <div className="flex items-center gap-3 lg:gap-6">
             <Link href="/">
               <HeaderLogo />
             </Link>
@@ -32,29 +32,33 @@ const Header = async ({ className, notificationCount = 3 }: HeaderProps) => {
             </div>
           </div>
 
-          <div className="flex items-center gap-5">
+          <div className="flex items-center gap-4 md:gap-5">
             {!session?.user ? (
-              <div className="space-x-4 hidden sm:block">
+              <div className="space-x-4 block">
                 <Link href="/login">
-                  <Button>Get Started</Button>
+                  <Button variant="basic" size="sm" className="rounded-[4px]!">
+                    Get Started
+                  </Button>
                 </Link>
               </div>
             ) : (
-              <div className="flex gap-5">
+              <div className="flex gap-4 md:gap-5">
                 <ProfileDropdownMenu session={session} />
                 <Notifications notificationCount={notificationCount} />
               </div>
             )}
 
-            <div className="hidden sm:block md:hidden h-6 w-px bg-muted-foreground/40" />
+            <div className="md:hidden h-6 w-px bg-muted-foreground/40" />
 
             <div className="md:hidden flex items-center">
               <Sidebar session={session} />
             </div>
 
-            <div className="h-6 w-px bg-muted-foreground/40" />
+            <div className="h-6 w-px bg-muted-foreground/40 hidden md:block" />
 
-            <ModeToggle />
+            <div className="hidden md:block">
+              <ModeToggle />
+            </div>
           </div>
         </div>
       </Container>

@@ -14,8 +14,13 @@ const UserAvatar = ({
   const userImage = session?.user?.image || "";
   const userEmail = session?.user?.email || "unknown";
 
-  const avatarIcon = () => (
-    <Avatar className={cn(avatarClassName, "h-10 w-10 ring-2 ring-primary/10")}>
+  const AvatarIcon = ({ avatarClassName }: { avatarClassName?: string }) => (
+    <Avatar
+      className={cn(
+        avatarClassName,
+        "h-7 w-7 sm:h-10 sm:w-10 ring-2 ring-primary/10"
+      )}
+    >
       <AvatarImage src={userImage} alt={username} />
       <AvatarFallback className="bg-primary/10 text-primary font-semibold">
         {username.split(" ")[0][0] + username.split(" ")[1]?.[0]}
@@ -23,7 +28,7 @@ const UserAvatar = ({
     </Avatar>
   );
 
-  if (!withText) return avatarIcon();
+  if (!withText) return <AvatarIcon avatarClassName={avatarClassName} />;
 
   return (
     <div className={cn("flex items-center gap-5", className)}>
@@ -31,7 +36,7 @@ const UserAvatar = ({
         href="/account"
         className="flex items-center p-3 gap-3 rounded-lg bg-background cursor-pointer group hover:bg-muted/50 transition-colors"
       >
-        {avatarIcon()}
+        <AvatarIcon avatarClassName="h-10! w-10!" />
         <div className="flex-1 min-w-0">
           <h3 className="font-semibold text-sm truncate group-hover:text-primary transition-colors">
             {username}

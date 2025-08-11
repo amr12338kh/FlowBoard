@@ -14,7 +14,7 @@ const GuestActions = () => {
 
       <div className="flex flex-col gap-2">
         <Link href="/login">
-          <Button className="w-full gradient-primary hover:opacity-90 font-medium">
+          <Button className="w-full rounded-[4px]" variant="basic">
             Get started free
           </Button>
         </Link>

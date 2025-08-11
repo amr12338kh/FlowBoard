@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Cloud, Moon, Sun, Waves } from "lucide-react";
+import { Check, Cloud, Waves } from "lucide-react";
 import { useTheme } from "next-themes";
 
 import { Button } from "@/components/ui/button";
@@ -22,7 +22,7 @@ export function ModeToggle() {
           <Cloud
             className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all data-[theme=teal]:scale-0 data-[theme=teal]:-rotate-90 data-[theme=system]:scale-0 data-[theme=system]:-rotate-90"
             data-theme={theme}
-          />
+          />{" "}
           <Waves
             className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all data-[theme=teal]:scale-100 data-[theme=teal]:rotate-0"
             data-theme={theme}
@@ -40,5 +40,45 @@ export function ModeToggle() {
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
+  );
+}
+
+export function SidebarModeToggle() {
+  const { theme, setTheme } = useTheme();
+
+  const themes = [
+    {
+      value: "sky",
+      label: "Sky",
+      icon: Cloud,
+    },
+    {
+      value: "teal",
+      label: "Teal",
+      icon: Waves,
+    },
+  ];
+
+  return (
+    <div className="space-y-2">
+      {themes.map((themeOption) => {
+        const Icon = themeOption.icon;
+        const isActive = theme === themeOption.value;
+
+        return (
+          <Button
+            key={themeOption.value}
+            variant={isActive ? "default" : "ghost"}
+            size="sm"
+            onClick={() => setTheme(themeOption.value)}
+            className="w-full justify-start gap-3"
+          >
+            <Icon className="h-4 w-4" />
+            <span className="flex-1 text-left">{themeOption.label} Theme</span>
+            {isActive && <Check className="h-4 w-4" />}
+          </Button>
+        );
+      })}
+    </div>
   );
 }

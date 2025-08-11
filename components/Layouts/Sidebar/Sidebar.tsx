@@ -18,6 +18,7 @@ import Resources from "./Resources";
 import LoggedUserInfo from "./UserInfo/LoggedUserInfo";
 import GuestActions from "./UserInfo/GuestActions";
 import { Session } from "next-auth";
+import { SidebarModeToggle } from "@/components/Themes/ModeToggle";
 
 const Sidebar = ({ session }: { session: Session | null }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -43,7 +44,7 @@ const Sidebar = ({ session }: { session: Session | null }) => {
 
         {/* Main Content */}
         <div className="flex flex-col h-full">
-          <div className="flex-1 px-4 py-4 space-y-6">
+          <div className="flex-1 px-4 pb-4 space-y-6">
             {/* Quick Actions (if logged in) */}
             {session?.user && <QuickActions />}
 
@@ -52,6 +53,10 @@ const Sidebar = ({ session }: { session: Session | null }) => {
 
             {/* Additional Resources */}
             <Resources />
+          </div>
+
+          <div className="px-4 py-4 border-t bg-muted/10">
+            <SidebarModeToggle />
           </div>
 
           {/* Bottom Section */}
