@@ -45,7 +45,7 @@ const FeatureCard = ({ feature }: { feature: FeatureProps }) => {
           <div className="mt-auto pt-2">
             <Link
               href="#"
-              className="group/link inline-flex items-center gap-3 font-medium transition-all duration-300 py-3 px-4 -mx-4"
+              className="group/link inline-flex items-center gap-4 font-medium transition-all duration-300 py-3 px-4 -mx-4"
             >
               <span
                 className="relative"
@@ -57,9 +57,9 @@ const FeatureCard = ({ feature }: { feature: FeatureProps }) => {
                 <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover/link:w-full transition-all duration-300 ease-out" />
               </span>
 
-              <div className="flex items-center justify-center w-6 h-6 rounded-full bg-primary-basic group-hover/link:bg-primary transition-all duration-300 ease-out transform group-hover/link:translate-x-1">
-                <ArrowRight className="w-4 h-4 text-white transition-colors duration-300" />
-              </div>
+              <span className="p-1 rounded-full bg-primary-basic text-white group-hover:translate-x-1 transition-transform">
+                <ArrowRight className="size-3.5 sm:size-4" />
+              </span>
             </Link>
           </div>
         </div>
