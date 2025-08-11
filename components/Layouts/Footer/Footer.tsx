@@ -4,13 +4,8 @@
 import React from "react";
 import SectionBackgroundWrapper from "../SectionBackgroundWrapper";
 import { Container } from "../Container";
-import { FaviconLogo, HeaderLogo } from "@/components/Logo";
-import {
-  footerCopyright,
-  footerData,
-  navigationItems,
-  socialLinks,
-} from "@/data/data";
+import { HeaderLogo } from "@/components/Logo";
+import { footerCopyright, footerData, socialLinks } from "@/data/data";
 import Link from "next/link";
 import { useThemeAwareColor } from "@/hooks/use-theme-aware-color";
 import { darkenHexColor } from "@/lib/helpers";
@@ -67,7 +62,7 @@ const Footer = () => {
             {footerCopyright.allRightsReserved}
           </p>
 
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1 opacity-80 hover:opacity-100 cursor-pointer">
             <Earth className="size-5" /> <span>English</span>
           </div>
 
@@ -86,14 +81,14 @@ const Footer = () => {
           <div className="flex items-center gap-2">
             <Link
               href="#"
-              className="hover:underline hover:text-primary duration-200 transition-all"
+              className="hover:underline opacity-80 hover:opacity-100 duration-200 transition-all"
             >
               Terms of Service
             </Link>{" "}
-            |{" "}
+            •{" "}
             <Link
               href="#"
-              className="hover:underline hover:text-primary duration-200 transition-all"
+              className="hover:underline opacity-80 hover:opacity-100 duration-200 transition-all"
             >
               Privacy Policy
             </Link>
