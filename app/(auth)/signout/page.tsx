@@ -1,9 +1,9 @@
 import { AlertCircleIcon, ArrowLeft, HomeIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import SignoutForm from "@/components/Forms/SignoutForm";
+import SignoutForm from "@/components/Home/Forms/SignoutForm";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import UserAvatar from "@/components/UserAvatar";
+import UserAvatar from "@/components/shared/UserAvatar";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 

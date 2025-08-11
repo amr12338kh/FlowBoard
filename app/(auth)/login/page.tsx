@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
-import { LoginForm } from "@/components/Forms/LoginForm";
+import { LoginForm } from "@/components/Home/Forms/LoginForm";
 import Link from "next/link";
-import { HeaderLogo } from "@/components/Logo";
-import { Container } from "@/components/Layouts/Container";
+import { HeaderLogo } from "@/components/shared/Logo";
+import { Container } from "@/components/Home/Layouts/Container";
 
 const page = async () => {
   return (
