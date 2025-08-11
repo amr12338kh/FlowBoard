@@ -2,14 +2,9 @@
 import { LoginForm } from "@/components/Forms/LoginForm";
 import Link from "next/link";
 import { HeaderLogo } from "@/components/Logo";
-import { auth } from "@/auth";
-import { redirect } from "next/navigation";
 import { Container } from "@/components/Layouts/Container";
 
 const page = async () => {
-  const session = await auth();
-  if (session) redirect("/");
-
   return (
     <div className="grid min-h-svh lg:grid-cols-3">
       <Container className="flex flex-col gap-4">

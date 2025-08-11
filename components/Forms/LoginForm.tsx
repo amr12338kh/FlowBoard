@@ -48,7 +48,7 @@ export const LoginForm = () => {
         disabled={isPending}
         variant="outline"
         onClick={() => run(() => login("google"), "google")}
-        className="w-full p-5 hover:bg-muted-foreground/5 text-lg p-5"
+        className="w-full p-5 hover:bg-muted-foreground/5 text-lg"
       >
         {isPending && provider === "google" && (
           <Loader2 className="animate-spin" />

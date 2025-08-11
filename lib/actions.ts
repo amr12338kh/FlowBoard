@@ -3,9 +3,19 @@
 import { signIn, signOut } from "@/auth";
 
 export const login = async (provider: string) => {
-  await signIn(provider, { redirectTo: "/" });
+  try {
+    await signIn(provider, { redirectTo: "/dashboard" });
+  } catch (error) {
+    console.error("Error logging in: ", error);
+    throw error;
+  }
 };
 
 export const signout = async () => {
-  await signOut({ redirectTo: "/" });
+  try {
+    await signOut({ redirectTo: "/" });
+  } catch (error) {
+    console.error("Error signing out: ", error);
+    throw error;
+  }
 };
