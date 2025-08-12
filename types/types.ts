@@ -34,6 +34,7 @@ export interface UserAvatarProps {
   className?: string;
   avatarClassName?: string;
   withText?: boolean;
+  withSittings?: boolean;
 }
 
 export interface User {

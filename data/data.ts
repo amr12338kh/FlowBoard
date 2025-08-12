@@ -46,6 +46,17 @@ import {
   Type,
   BellRing,
   Building2,
+  GalleryVerticalEnd,
+  AudioWaveform,
+  Command,
+  HomeIcon,
+  CheckCircleIcon,
+  Bell,
+  BriefcaseIcon,
+  icons,
+  Frame,
+  PieChart,
+  Map,
 } from "lucide-react";
 import {
   FaFacebook,
@@ -811,3 +822,86 @@ export const footerCopyright = {
   company: "FlowBoard, Inc.",
   allRightsReserved: "All rights reserved.",
 };
+
+// Dashboard
+export const dashboardSidebarData = {
+  teams: [
+    {
+      name: "My Team",
+      logo: GalleryVerticalEnd,
+      plan: "Free",
+    },
+  ],
+  navMain: [
+    {
+      title: "Home",
+      url: "/dashboard",
+      icon: HomeIcon,
+      isActive: true,
+    },
+    {
+      title: "My Tasks",
+      url: "/dashboard/tasks",
+      icon: CheckCircleIcon,
+    },
+    {
+      title: "Projects",
+      url: "/dashboard/projects",
+      icon: BriefcaseIcon,
+    },
+    {
+      title: "Notifications",
+      url: "/dashboard/notifications",
+      icon: Bell,
+    },
+  ],
+  projects: [
+    {
+      name: "Design Engineering",
+      url: "#",
+      icon: Frame,
+    },
+    {
+      name: "Sales & Marketing",
+      url: "#",
+      icon: PieChart,
+    },
+    {
+      name: "Travel",
+      url: "#",
+      icon: Map,
+    },
+  ],
+};
+
+export const navUserData = [
+  {
+    name: "Upgrade Plan",
+    href: "/upgrade",
+    icon: Sparkles,
+  },
+  {
+    group: [
+      {
+        name: "Account",
+        href: "/account",
+        icon: User2,
+      },
+      {
+        name: "Billing",
+        href: "/billing",
+        icon: CreditCard,
+      },
+      {
+        name: "Notifications",
+        href: "/dashboard/notifications",
+        icon: Bell,
+      },
+    ],
+  },
+  {
+    name: "Sign Out",
+    href: "/signout",
+    icon: LogOut,
+  },
+];

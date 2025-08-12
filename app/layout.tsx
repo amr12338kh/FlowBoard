@@ -11,7 +11,7 @@ const nunito = Nunito_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Flow Board",
+  title: "FlowBoard",
   description: "Flow Board - Organize your work and boost productivity",
   icons: {
     icon: "/favicon.svg",
