@@ -1,12 +1,9 @@
-export const formatDate = (date: Date) => {
+export const formatDate = (date: Date, fullDate = true) => {
   return date.toLocaleDateString("en-US", {
     weekday: "long",
-    year: "numeric",
     month: "long",
     day: "2-digit",
-    hour: "numeric",
-    minute: "2-digit",
-    hour12: true,
+    ...(fullDate && { year: "numeric", hour: "2-digit", minute: "2-digit" }),
   });
 };
 
@@ -92,4 +89,16 @@ export const darkenHexColor = (hex: string, amount = 20) => {
   return `#${r.toString(16).padStart(2, "0")}${g
     .toString(16)
     .padStart(2, "0")}${b.toString(16).padStart(2, "0")}`;
+};
+
+// Greeting
+export const getGreeting = (name: string) => {
+  const hours = new Date().getHours();
+  if (hours < 12) {
+    return `Good Morning, ${name}`;
+  } else if (hours < 18) {
+    return `Good Afternoon, ${name}`;
+  } else {
+    return `Good Evening, ${name}`;
+  }
 };
