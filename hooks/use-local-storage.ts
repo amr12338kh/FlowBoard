@@ -12,6 +12,19 @@ export const useLocalStorage = (key: string) => {
     }
   };
 
+  // Add item to array in local storage
+  const addItemToArray = <T>(newItem: T) => {
+    if (!isClient) return;
+
+    try {
+      const existingItems = getItem<T[]>() || [];
+      const updatedItems = [...existingItems, newItem];
+      window.localStorage.setItem(key, JSON.stringify(updatedItems));
+    } catch (error) {
+      console.error(`Error adding item to localStorage key "${key}":`, error);
+    }
+  };
+
   // Get item from local storage
   const getItem = <T>(): T | undefined => {
     if (!isClient) return undefined;
@@ -25,8 +38,26 @@ export const useLocalStorage = (key: string) => {
     }
   };
 
-  // Remove item from local storage
-  const removeItem = () => {
+  // Remove item from array by ID
+  const removeItemFromArray = <T extends { id: string | number }>(
+    itemId: string | number
+  ) => {
+    if (!isClient) return;
+
+    try {
+      const existingItems = getItem<T[]>() || [];
+      const updatedItems = existingItems.filter((item) => item.id !== itemId);
+      window.localStorage.setItem(key, JSON.stringify(updatedItems));
+    } catch (error) {
+      console.error(
+        `Error removing item from localStorage key "${key}":`,
+        error
+      );
+    }
+  };
+
+  // Remove entire key from local storage
+  const removeAll = () => {
     if (!isClient) return;
 
     try {
@@ -36,5 +67,5 @@ export const useLocalStorage = (key: string) => {
     }
   };
 
-  return { setItem, getItem, removeItem };
+  return { setItem, addItemToArray, getItem, removeItemFromArray, removeAll };
 };
